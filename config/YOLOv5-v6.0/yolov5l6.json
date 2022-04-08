@@ -1,0 +1,118 @@
+// 这是算法模块的配置文件.
+{
+	// 带路径但不带后缀的模型名字.
+	"mname": "../../../models/YOLOv5-v6.0/yolov5l6",
+	
+	// 承载算法负载的GPU设备号.
+	// 如果有NUM_DEVICE个GPU设备, 此项取值范围为[0, NUM_DEVICE-1]内的整数.
+	"device": 0,
+	
+	// 模型输入图像宽度.
+	// 模型输入图像尺寸必须与模型本身严格匹配, 不能任意设置.
+	"inw": 1280,
+	
+	// 模型输入图像高度.
+	"inh": 1280,
+	
+	// 是否使用P6架构.
+	"is_p6": true,
+	
+	// 模型深度因子. 模型深度因子和模型宽度因子是严格配对使用的, 不能随意组合.
+	// 模型深度因子和宽度因子合法的组合有: (0.33, 0.25), (0.33, 0.50), (0.67, 0.75), (1, 1), (1.33, 1.25).
+	// 模型深度/宽度因子值越大, 模型的浮点运算量越大, 其物体检测的精度越高, 运行速度越慢.
+	"mdepth": 1.0,
+	
+	// 模型宽度因子.
+	"mwidth": 1.0,
+	
+	// 非最大值抑制阈值, 取值范围(0, 1). 值越大对重叠边框的抑制力越强.
+	"nms_thresh": 0.4,
+	
+	// 物体判别的置信度阈值, 取值范围(0, 1). 值越小模型识别物体的灵敏度越高, 物体的误检率越高.
+	// 值越大模型识别物体的灵敏度越低, 物体的漏检率越高.
+	"score_thresh": 0.5,
+	
+	// 模型可以检测的物体类别. 类别列表(包括顺序)必须与模型严格匹配.
+	"categories": [
+		"person",
+		"bicycle",
+		"car",
+		"motorcycle",
+		"airplane",
+		"bus",
+		"train",
+		"truck",
+		"boat",
+		"traffic light",
+		"fire hydrant",
+		"stop sign",
+		"parking meter",
+		"bench",
+		"bird",
+		"cat",
+		"dog",
+		"horse",
+		"sheep",
+		"cow",
+		"elephant",
+		"bear",
+		"zebra",
+		"giraffe",
+		"backpack",
+		"umbrella",
+		"handbag",
+		"tie",
+		"suitcase",
+		"frisbee",
+		"skis",
+		"snowboard",
+		"sports ball",
+		"kite",
+		"baseball bat",
+		"baseball glove",
+		"skateboard",
+		"surfboard",
+		"tennis racket",
+		"bottle",
+		"wine glass",
+		"cup",
+		"fork",
+		"knife",
+		"spoon",
+		"bowl",
+		"banana",
+		"apple",
+		"sandwich",
+		"orange",
+		"broccoli",
+		"carrot",
+		"hot dog",
+		"pizza",
+		"donut",
+		"cake",
+		"chair",
+		"couch",
+		"potted plant",
+		"bed",
+		"dining table",
+		"toilet",
+		"tv",
+		"laptop",
+		"mouse",
+		"remote",
+		"keyboard",
+		"cell phone",
+		"microwave",
+		"oven",
+		"toaster",
+		"sink",
+		"refrigerator",
+		"book",
+		"clock",
+		"vase",
+		"scissors",
+		"teddy bear",
+		"hair drier",
+		"toothbrush"
+	]
+}

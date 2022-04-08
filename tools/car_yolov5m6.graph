@@ -1,0 +1,8419 @@
+{
+  "1749936074472": {
+    "name": "Input",
+    "shape": [
+      1,
+      3,
+      704,
+      1280
+    ]
+  },
+  "1749542485128": {
+    "weight": "model.0.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749936074472"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      2,
+      2
+    ],
+    "_saved_self_sizes": [
+      1,
+      3,
+      704,
+      1280
+    ],
+    "_saved_stride": [
+      2,
+      2
+    ],
+    "_saved_weight_sizes": [
+      48,
+      3,
+      6,
+      6
+    ]
+  },
+  "1749542485464": {
+    "weight": "model.0.bn.weight",
+    "bias": "model.0.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749542485128"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      48,
+      352,
+      640
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      48
+    ],
+    "_saved_running_var_sizes": [
+      48
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      48
+    ]
+  },
+  "1749542556000": {
+    "name": "SiLU",
+    "input": [
+      "1749542485464"
+    ],
+    "_saved_self_sizes": [
+      1,
+      48,
+      352,
+      640
+    ]
+  },
+  "1749542557008": {
+    "weight": "model.1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542556000"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      48,
+      352,
+      640
+    ],
+    "_saved_stride": [
+      2,
+      2
+    ],
+    "_saved_weight_sizes": [
+      96,
+      48,
+      3,
+      3
+    ]
+  },
+  "1749542557232": {
+    "weight": "model.1.bn.weight",
+    "bias": "model.1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749542557008"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      96,
+      176,
+      320
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      96
+    ],
+    "_saved_running_var_sizes": [
+      96
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      96
+    ]
+  },
+  "1749542557736": {
+    "name": "SiLU",
+    "input": [
+      "1749542557232"
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      176,
+      320
+    ]
+  },
+  "1749542558744": {
+    "weight": "model.2.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542557736"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      176,
+      320
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      48,
+      96,
+      1,
+      1
+    ]
+  },
+  "1749542559080": {
+    "weight": "model.2.cv1.bn.weight",
+    "bias": "model.2.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749542558744"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      48,
+      176,
+      320
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      48
+    ],
+    "_saved_running_var_sizes": [
+      48
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      48
+    ]
+  },
+  "1749542625408": {
+    "name": "SiLU",
+    "input": [
+      "1749542559080"
+    ],
+    "_saved_self_sizes": [
+      1,
+      48,
+      176,
+      320
+    ]
+  },
+  "1749542154928": {
+    "weight": "model.2.m.0.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542625408"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      48,
+      176,
+      320
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      48,
+      48,
+      1,
+      1
+    ]
+  },
+  "1749542155264": {
+    "weight": "model.2.m.0.cv1.bn.weight",
+    "bias": "model.2.m.0.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749542154928"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      48,
+      176,
+      320
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      48
+    ],
+    "_saved_running_var_sizes": [
+      48
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      48
+    ]
+  },
+  "1749542156104": {
+    "name": "SiLU",
+    "input": [
+      "1749542155264"
+    ],
+    "_saved_self_sizes": [
+      1,
+      48,
+      176,
+      320
+    ]
+  },
+  "1749542157448": {
+    "weight": "model.2.m.0.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542156104"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      48,
+      176,
+      320
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      48,
+      48,
+      3,
+      3
+    ]
+  },
+  "1749542558912": {
+    "weight": "model.2.m.0.cv2.bn.weight",
+    "bias": "model.2.m.0.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749542157448"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      48,
+      176,
+      320
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      48
+    ],
+    "_saved_running_var_sizes": [
+      48
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      48
+    ]
+  },
+  "1749542625352": {
+    "name": "SiLU",
+    "input": [
+      "1749542558912"
+    ],
+    "_saved_self_sizes": [
+      1,
+      48,
+      176,
+      320
+    ]
+  },
+  "1749542625912": {
+    "name": "Add",
+    "input": [
+      "1749542625408",
+      "1749542625352"
+    ],
+    "_saved_alpha": 1
+  },
+  "1749542034848": {
+    "weight": "model.2.m.1.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542625912"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      48,
+      176,
+      320
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      48,
+      48,
+      1,
+      1
+    ]
+  },
+  "1749542035184": {
+    "weight": "model.2.m.1.cv1.bn.weight",
+    "bias": "model.2.m.1.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749542034848"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      48,
+      176,
+      320
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      48
+    ],
+    "_saved_running_var_sizes": [
+      48
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      48
+    ]
+  },
+  "1749542089448": {
+    "name": "SiLU",
+    "input": [
+      "1749542035184"
+    ],
+    "_saved_self_sizes": [
+      1,
+      48,
+      176,
+      320
+    ]
+  },
+  "1749542156160": {
+    "weight": "model.2.m.1.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542089448"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      48,
+      176,
+      320
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      48,
+      48,
+      3,
+      3
+    ]
+  },
+  "1749542559584": {
+    "weight": "model.2.m.1.cv2.bn.weight",
+    "bias": "model.2.m.1.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749542156160"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      48,
+      176,
+      320
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      48
+    ],
+    "_saved_running_var_sizes": [
+      48
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      48
+    ]
+  },
+  "1749542625744": {
+    "name": "SiLU",
+    "input": [
+      "1749542559584"
+    ],
+    "_saved_self_sizes": [
+      1,
+      48,
+      176,
+      320
+    ]
+  },
+  "1749542626752": {
+    "name": "Add",
+    "input": [
+      "1749542625912",
+      "1749542625744"
+    ],
+    "_saved_alpha": 1
+  },
+  "1749542089504": {
+    "weight": "model.2.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542557736"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      176,
+      320
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      48,
+      96,
+      1,
+      1
+    ]
+  },
+  "1749542625576": {
+    "weight": "model.2.cv2.bn.weight",
+    "bias": "model.2.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749542089504"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      48,
+      176,
+      320
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      48
+    ],
+    "_saved_running_var_sizes": [
+      48
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      48
+    ]
+  },
+  "1749542626696": {
+    "name": "SiLU",
+    "input": [
+      "1749542625576"
+    ],
+    "_saved_self_sizes": [
+      1,
+      48,
+      176,
+      320
+    ]
+  },
+  "1749542627256": {
+    "name": "Cat",
+    "input": [
+      "1749542626752",
+      "1749542626696"
+    ],
+    "_saved_dim": 1
+  },
+  "1749542628152": {
+    "weight": "model.2.cv3.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542627256"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      176,
+      320
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      96,
+      96,
+      1,
+      1
+    ]
+  },
+  "1749542628488": {
+    "weight": "model.2.cv3.bn.weight",
+    "bias": "model.2.cv3.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749542628152"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      96,
+      176,
+      320
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      96
+    ],
+    "_saved_running_var_sizes": [
+      96
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      96
+    ]
+  },
+  "1749542629216": {
+    "name": "SiLU",
+    "input": [
+      "1749542628488"
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      176,
+      320
+    ]
+  },
+  "1749542683648": {
+    "weight": "model.3.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542629216"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      176,
+      320
+    ],
+    "_saved_stride": [
+      2,
+      2
+    ],
+    "_saved_weight_sizes": [
+      192,
+      96,
+      3,
+      3
+    ]
+  },
+  "1749542683872": {
+    "weight": "model.3.bn.weight",
+    "bias": "model.3.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749542683648"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      88,
+      160
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749542684376": {
+    "name": "SiLU",
+    "input": [
+      "1749542683872"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      88,
+      160
+    ]
+  },
+  "1749542685272": {
+    "weight": "model.4.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542684376"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      88,
+      160
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      96,
+      192,
+      1,
+      1
+    ]
+  },
+  "1749542685608": {
+    "weight": "model.4.cv1.bn.weight",
+    "bias": "model.4.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749542685272"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      96
+    ],
+    "_saved_running_var_sizes": [
+      96
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      96
+    ]
+  },
+  "1749542686336": {
+    "name": "SiLU",
+    "input": [
+      "1749542685608"
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ]
+  },
+  "1749541893512": {
+    "weight": "model.4.m.0.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542686336"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      96,
+      96,
+      1,
+      1
+    ]
+  },
+  "1749541893848": {
+    "weight": "model.4.m.0.cv1.bn.weight",
+    "bias": "model.4.m.0.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749541893512"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      96
+    ],
+    "_saved_running_var_sizes": [
+      96
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      96
+    ]
+  },
+  "1749541894688": {
+    "name": "SiLU",
+    "input": [
+      "1749541893848"
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ]
+  },
+  "1749541896032": {
+    "weight": "model.4.m.0.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749541894688"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      96,
+      96,
+      3,
+      3
+    ]
+  },
+  "1749542685440": {
+    "weight": "model.4.m.0.cv2.bn.weight",
+    "bias": "model.4.m.0.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749541896032"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      96
+    ],
+    "_saved_running_var_sizes": [
+      96
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      96
+    ]
+  },
+  "1749542686280": {
+    "name": "SiLU",
+    "input": [
+      "1749542685440"
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ]
+  },
+  "1749542748344": {
+    "name": "Add",
+    "input": [
+      "1749542686336",
+      "1749542686280"
+    ],
+    "_saved_alpha": 1
+  },
+  "1749541822648": {
+    "weight": "model.4.m.1.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542748344"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      96,
+      96,
+      1,
+      1
+    ]
+  },
+  "1749541822984": {
+    "weight": "model.4.m.1.cv1.bn.weight",
+    "bias": "model.4.m.1.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749541822648"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      96
+    ],
+    "_saved_running_var_sizes": [
+      96
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      96
+    ]
+  },
+  "1749541823936": {
+    "name": "SiLU",
+    "input": [
+      "1749541822984"
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ]
+  },
+  "1749541894744": {
+    "weight": "model.4.m.1.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749541823936"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      96,
+      96,
+      3,
+      3
+    ]
+  },
+  "1749542686112": {
+    "weight": "model.4.m.1.cv2.bn.weight",
+    "bias": "model.4.m.1.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749541894744"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      96
+    ],
+    "_saved_running_var_sizes": [
+      96
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      96
+    ]
+  },
+  "1749542686672": {
+    "name": "SiLU",
+    "input": [
+      "1749542686112"
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ]
+  },
+  "1749542749296": {
+    "name": "Add",
+    "input": [
+      "1749542748344",
+      "1749542686672"
+    ],
+    "_saved_alpha": 1
+  },
+  "1749541702736": {
+    "weight": "model.4.m.2.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542749296"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      96,
+      96,
+      1,
+      1
+    ]
+  },
+  "1749541703072": {
+    "weight": "model.4.m.2.cv1.bn.weight",
+    "bias": "model.4.m.2.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749541702736"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      96
+    ],
+    "_saved_running_var_sizes": [
+      96
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      96
+    ]
+  },
+  "1749541769512": {
+    "name": "SiLU",
+    "input": [
+      "1749541703072"
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ]
+  },
+  "1749541823992": {
+    "weight": "model.4.m.2.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749541769512"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      96,
+      96,
+      3,
+      3
+    ]
+  },
+  "1749542686504": {
+    "weight": "model.4.m.2.cv2.bn.weight",
+    "bias": "model.4.m.2.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749541823992"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      96
+    ],
+    "_saved_running_var_sizes": [
+      96
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      96
+    ]
+  },
+  "1749542749240": {
+    "name": "SiLU",
+    "input": [
+      "1749542686504"
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ]
+  },
+  "1749542749800": {
+    "name": "Add",
+    "input": [
+      "1749542749296",
+      "1749542749240"
+    ],
+    "_saved_alpha": 1
+  },
+  "1749541484248": {
+    "weight": "model.4.m.3.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542749800"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      96,
+      96,
+      1,
+      1
+    ]
+  },
+  "1749541485368": {
+    "weight": "model.4.m.3.cv1.bn.weight",
+    "bias": "model.4.m.3.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749541484248"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      96
+    ],
+    "_saved_running_var_sizes": [
+      96
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      96
+    ]
+  },
+  "1749541485648": {
+    "name": "SiLU",
+    "input": [
+      "1749541485368"
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ]
+  },
+  "1749541769568": {
+    "weight": "model.4.m.3.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749541485648"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      96,
+      96,
+      3,
+      3
+    ]
+  },
+  "1749542749072": {
+    "weight": "model.4.m.3.cv2.bn.weight",
+    "bias": "model.4.m.3.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749541769568"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      96
+    ],
+    "_saved_running_var_sizes": [
+      96
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      96
+    ]
+  },
+  "1749542749632": {
+    "name": "SiLU",
+    "input": [
+      "1749542749072"
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ]
+  },
+  "1749542750528": {
+    "name": "Add",
+    "input": [
+      "1749542749800",
+      "1749542749632"
+    ],
+    "_saved_alpha": 1
+  },
+  "1749541485816": {
+    "weight": "model.4.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542684376"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      88,
+      160
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      96,
+      192,
+      1,
+      1
+    ]
+  },
+  "1749542749464": {
+    "weight": "model.4.cv2.bn.weight",
+    "bias": "model.4.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749541485816"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      96
+    ],
+    "_saved_running_var_sizes": [
+      96
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      96
+    ]
+  },
+  "1749542750472": {
+    "name": "SiLU",
+    "input": [
+      "1749542749464"
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ]
+  },
+  "1749542751032": {
+    "name": "Cat",
+    "input": [
+      "1749542750528",
+      "1749542750472"
+    ],
+    "_saved_dim": 1
+  },
+  "1749542752040": {
+    "weight": "model.4.cv3.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542751032"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      88,
+      160
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      192,
+      1,
+      1
+    ]
+  },
+  "1749542817976": {
+    "weight": "model.4.cv3.bn.weight",
+    "bias": "model.4.cv3.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749542752040"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      88,
+      160
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749829424968": {
+    "name": "SiLU",
+    "input": [
+      "1749542817976"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      88,
+      160
+    ]
+  },
+  "1749542819208": {
+    "weight": "model.5.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749829424968"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      88,
+      160
+    ],
+    "_saved_stride": [
+      2,
+      2
+    ],
+    "_saved_weight_sizes": [
+      384,
+      192,
+      3,
+      3
+    ]
+  },
+  "1749542819880": {
+    "weight": "model.5.bn.weight",
+    "bias": "model.5.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749542819208"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      384,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      384
+    ],
+    "_saved_running_var_sizes": [
+      384
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      384
+    ]
+  },
+  "1749542820272": {
+    "name": "SiLU",
+    "input": [
+      "1749542819880"
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      44,
+      80
+    ]
+  },
+  "1749542821336": {
+    "weight": "model.6.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542820272"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      384,
+      1,
+      1
+    ]
+  },
+  "1749542821672": {
+    "weight": "model.6.cv1.bn.weight",
+    "bias": "model.6.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749542821336"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749542888112": {
+    "name": "SiLU",
+    "input": [
+      "1749542821672"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749936104896": {
+    "weight": "model.6.m.0.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542888112"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      192,
+      1,
+      1
+    ]
+  },
+  "1749936104784": {
+    "weight": "model.6.m.0.cv1.bn.weight",
+    "bias": "model.6.m.0.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749936104896"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749936104616": {
+    "name": "SiLU",
+    "input": [
+      "1749936104784"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749936104280": {
+    "weight": "model.6.m.0.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749936104616"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      192,
+      3,
+      3
+    ]
+  },
+  "1749542821504": {
+    "weight": "model.6.m.0.cv2.bn.weight",
+    "bias": "model.6.m.0.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749936104280"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749542887944": {
+    "name": "SiLU",
+    "input": [
+      "1749542821504"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749542888504": {
+    "name": "Add",
+    "input": [
+      "1749542888112",
+      "1749542887944"
+    ],
+    "_saved_alpha": 1
+  },
+  "1749936106240": {
+    "weight": "model.6.m.1.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542888504"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      192,
+      1,
+      1
+    ]
+  },
+  "1749936106128": {
+    "weight": "model.6.m.1.cv1.bn.weight",
+    "bias": "model.6.m.1.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749936106240"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749936105960": {
+    "name": "SiLU",
+    "input": [
+      "1749936106128"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749936104560": {
+    "weight": "model.6.m.1.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749936105960"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      192,
+      3,
+      3
+    ]
+  },
+  "1749542821840": {
+    "weight": "model.6.m.1.cv2.bn.weight",
+    "bias": "model.6.m.1.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749936104560"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749542888336": {
+    "name": "SiLU",
+    "input": [
+      "1749542821840"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749542889344": {
+    "name": "Add",
+    "input": [
+      "1749542888504",
+      "1749542888336"
+    ],
+    "_saved_alpha": 1
+  },
+  "1749936132224": {
+    "weight": "model.6.m.2.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542889344"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      192,
+      1,
+      1
+    ]
+  },
+  "1749936107472": {
+    "weight": "model.6.m.2.cv1.bn.weight",
+    "bias": "model.6.m.2.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749936132224"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749936107304": {
+    "name": "SiLU",
+    "input": [
+      "1749936107472"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749936105904": {
+    "weight": "model.6.m.2.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749936107304"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      192,
+      3,
+      3
+    ]
+  },
+  "1749542888168": {
+    "weight": "model.6.m.2.cv2.bn.weight",
+    "bias": "model.6.m.2.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749936105904"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749542889176": {
+    "name": "SiLU",
+    "input": [
+      "1749542888168"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749542889736": {
+    "name": "Add",
+    "input": [
+      "1749542889344",
+      "1749542889176"
+    ],
+    "_saved_alpha": 1
+  },
+  "1749936133568": {
+    "weight": "model.6.m.3.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542889736"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      192,
+      1,
+      1
+    ]
+  },
+  "1749936133456": {
+    "weight": "model.6.m.3.cv1.bn.weight",
+    "bias": "model.6.m.3.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749936133568"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749936133288": {
+    "name": "SiLU",
+    "input": [
+      "1749936133456"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749936107248": {
+    "weight": "model.6.m.3.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749936133288"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      192,
+      3,
+      3
+    ]
+  },
+  "1749542888672": {
+    "weight": "model.6.m.3.cv2.bn.weight",
+    "bias": "model.6.m.3.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749936107248"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749542889568": {
+    "name": "SiLU",
+    "input": [
+      "1749542888672"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749542890800": {
+    "name": "Add",
+    "input": [
+      "1749542889736",
+      "1749542889568"
+    ],
+    "_saved_alpha": 1
+  },
+  "1749936134912": {
+    "weight": "model.6.m.4.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542890800"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      192,
+      1,
+      1
+    ]
+  },
+  "1749936134800": {
+    "weight": "model.6.m.4.cv1.bn.weight",
+    "bias": "model.6.m.4.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749936134912"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749936134632": {
+    "name": "SiLU",
+    "input": [
+      "1749936134800"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749936133232": {
+    "weight": "model.6.m.4.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749936134632"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      192,
+      3,
+      3
+    ]
+  },
+  "1749542889400": {
+    "weight": "model.6.m.4.cv2.bn.weight",
+    "bias": "model.6.m.4.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749936133232"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749542890632": {
+    "name": "SiLU",
+    "input": [
+      "1749542889400"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749542891192": {
+    "name": "Add",
+    "input": [
+      "1749542890800",
+      "1749542890632"
+    ],
+    "_saved_alpha": 1
+  },
+  "1749938049152": {
+    "weight": "model.6.m.5.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542891192"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      192,
+      1,
+      1
+    ]
+  },
+  "1749936136144": {
+    "weight": "model.6.m.5.cv1.bn.weight",
+    "bias": "model.6.m.5.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938049152"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749936135976": {
+    "name": "SiLU",
+    "input": [
+      "1749936136144"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749936134576": {
+    "weight": "model.6.m.5.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749936135976"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      192,
+      3,
+      3
+    ]
+  },
+  "1749542889904": {
+    "weight": "model.6.m.5.cv2.bn.weight",
+    "bias": "model.6.m.5.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749936134576"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749542891024": {
+    "name": "SiLU",
+    "input": [
+      "1749542889904"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749542957632": {
+    "name": "Add",
+    "input": [
+      "1749542891192",
+      "1749542891024"
+    ],
+    "_saved_alpha": 1
+  },
+  "1749936135920": {
+    "weight": "model.6.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542820272"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      384,
+      1,
+      1
+    ]
+  },
+  "1749542890856": {
+    "weight": "model.6.cv2.bn.weight",
+    "bias": "model.6.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749936135920"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749542957464": {
+    "name": "SiLU",
+    "input": [
+      "1749542890856"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749542958024": {
+    "name": "Cat",
+    "input": [
+      "1749542957632",
+      "1749542957464"
+    ],
+    "_saved_dim": 1
+  },
+  "1749542959032": {
+    "weight": "model.6.cv3.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749542958024"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      384,
+      384,
+      1,
+      1
+    ]
+  },
+  "1749542959368": {
+    "weight": "model.6.cv3.bn.weight",
+    "bias": "model.6.cv3.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749542959032"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      384,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      384
+    ],
+    "_saved_running_var_sizes": [
+      384
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      384
+    ]
+  },
+  "1749829159176": {
+    "name": "SiLU",
+    "input": [
+      "1749542959368"
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      44,
+      80
+    ]
+  },
+  "1749542960600": {
+    "weight": "model.7.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749829159176"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      2,
+      2
+    ],
+    "_saved_weight_sizes": [
+      576,
+      384,
+      3,
+      3
+    ]
+  },
+  "1749543018904": {
+    "weight": "model.7.bn.weight",
+    "bias": "model.7.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749542960600"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      576,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      576
+    ],
+    "_saved_running_var_sizes": [
+      576
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      576
+    ]
+  },
+  "1749543019296": {
+    "name": "SiLU",
+    "input": [
+      "1749543018904"
+    ],
+    "_saved_self_sizes": [
+      1,
+      576,
+      22,
+      40
+    ]
+  },
+  "1749543020304": {
+    "weight": "model.8.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749543019296"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      576,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      288,
+      576,
+      1,
+      1
+    ]
+  },
+  "1749543020528": {
+    "weight": "model.8.cv1.bn.weight",
+    "bias": "model.8.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749543020304"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      288
+    ],
+    "_saved_running_var_sizes": [
+      288
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      288
+    ]
+  },
+  "1749543021536": {
+    "name": "SiLU",
+    "input": [
+      "1749543020528"
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ]
+  },
+  "1749938051784": {
+    "weight": "model.8.m.0.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749543021536"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      288,
+      288,
+      1,
+      1
+    ]
+  },
+  "1749938051672": {
+    "weight": "model.8.m.0.cv1.bn.weight",
+    "bias": "model.8.m.0.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938051784"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      288
+    ],
+    "_saved_running_var_sizes": [
+      288
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      288
+    ]
+  },
+  "1749938051504": {
+    "name": "SiLU",
+    "input": [
+      "1749938051672"
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ]
+  },
+  "1749938051168": {
+    "weight": "model.8.m.0.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938051504"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      288,
+      288,
+      3,
+      3
+    ]
+  },
+  "1749543020360": {
+    "weight": "model.8.m.0.cv2.bn.weight",
+    "bias": "model.8.m.0.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938051168"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      288
+    ],
+    "_saved_running_var_sizes": [
+      288
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      288
+    ]
+  },
+  "1749543020864": {
+    "name": "SiLU",
+    "input": [
+      "1749543020360"
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ]
+  },
+  "1749543021928": {
+    "name": "Add",
+    "input": [
+      "1749543021536",
+      "1749543020864"
+    ],
+    "_saved_alpha": 1
+  },
+  "1749938020424": {
+    "weight": "model.8.m.1.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749543021928"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      288,
+      288,
+      1,
+      1
+    ]
+  },
+  "1749938053016": {
+    "weight": "model.8.m.1.cv1.bn.weight",
+    "bias": "model.8.m.1.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938020424"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      288
+    ],
+    "_saved_running_var_sizes": [
+      288
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      288
+    ]
+  },
+  "1749938052848": {
+    "name": "SiLU",
+    "input": [
+      "1749938053016"
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ]
+  },
+  "1749938051448": {
+    "weight": "model.8.m.1.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938052848"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      288,
+      288,
+      3,
+      3
+    ]
+  },
+  "1749543020696": {
+    "weight": "model.8.m.1.cv2.bn.weight",
+    "bias": "model.8.m.1.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938051448"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      288
+    ],
+    "_saved_running_var_sizes": [
+      288
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      288
+    ]
+  },
+  "1749543021760": {
+    "name": "SiLU",
+    "input": [
+      "1749543020696"
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ]
+  },
+  "1749543085000": {
+    "name": "Add",
+    "input": [
+      "1749543021928",
+      "1749543021760"
+    ],
+    "_saved_alpha": 1
+  },
+  "1749938052792": {
+    "weight": "model.8.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749543019296"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      576,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      288,
+      576,
+      1,
+      1
+    ]
+  },
+  "1749543021704": {
+    "weight": "model.8.cv2.bn.weight",
+    "bias": "model.8.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938052792"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      288
+    ],
+    "_saved_running_var_sizes": [
+      288
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      288
+    ]
+  },
+  "1749543022264": {
+    "name": "SiLU",
+    "input": [
+      "1749543021704"
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ]
+  },
+  "1749543085392": {
+    "name": "Cat",
+    "input": [
+      "1749543085000",
+      "1749543022264"
+    ],
+    "_saved_dim": 1
+  },
+  "1749543086400": {
+    "weight": "model.8.cv3.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749543085392"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      576,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      576,
+      576,
+      1,
+      1
+    ]
+  },
+  "1749543086624": {
+    "weight": "model.8.cv3.bn.weight",
+    "bias": "model.8.cv3.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749543086400"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      576,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      576
+    ],
+    "_saved_running_var_sizes": [
+      576
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      576
+    ]
+  },
+  "1749828897088": {
+    "name": "SiLU",
+    "input": [
+      "1749543086624"
+    ],
+    "_saved_self_sizes": [
+      1,
+      576,
+      22,
+      40
+    ]
+  },
+  "1749543087856": {
+    "weight": "model.9.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749828897088"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      576,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      2,
+      2
+    ],
+    "_saved_weight_sizes": [
+      768,
+      576,
+      3,
+      3
+    ]
+  },
+  "1749543157888": {
+    "weight": "model.9.bn.weight",
+    "bias": "model.9.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749543087856"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      768,
+      11,
+      20
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      768
+    ],
+    "_saved_running_var_sizes": [
+      768
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      768
+    ]
+  },
+  "1749543158840": {
+    "name": "SiLU",
+    "input": [
+      "1749543157888"
+    ],
+    "_saved_self_sizes": [
+      1,
+      768,
+      11,
+      20
+    ]
+  },
+  "1749543159848": {
+    "weight": "model.10.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749543158840"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      768,
+      11,
+      20
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      384,
+      768,
+      1,
+      1
+    ]
+  },
+  "1749543160072": {
+    "weight": "model.10.cv1.bn.weight",
+    "bias": "model.10.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749543159848"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      384
+    ],
+    "_saved_running_var_sizes": [
+      384
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      384
+    ]
+  },
+  "1749543160576": {
+    "name": "SiLU",
+    "input": [
+      "1749543160072"
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ]
+  },
+  "1749938023056": {
+    "weight": "model.10.m.0.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749543160576"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      384,
+      384,
+      1,
+      1
+    ]
+  },
+  "1749938022944": {
+    "weight": "model.10.m.0.cv1.bn.weight",
+    "bias": "model.10.m.0.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938023056"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      384
+    ],
+    "_saved_running_var_sizes": [
+      384
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      384
+    ]
+  },
+  "1749938022776": {
+    "name": "SiLU",
+    "input": [
+      "1749938022944"
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ]
+  },
+  "1749938022384": {
+    "weight": "model.10.m.0.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938022776"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      384,
+      384,
+      3,
+      3
+    ]
+  },
+  "1749543160016": {
+    "weight": "model.10.m.0.cv2.bn.weight",
+    "bias": "model.10.m.0.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938022384"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      384
+    ],
+    "_saved_running_var_sizes": [
+      384
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      384
+    ]
+  },
+  "1749543160408": {
+    "name": "SiLU",
+    "input": [
+      "1749543160016"
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ]
+  },
+  "1749543161416": {
+    "name": "Add",
+    "input": [
+      "1749543160576",
+      "1749543160408"
+    ],
+    "_saved_alpha": 1
+  },
+  "1749938024400": {
+    "weight": "model.10.m.1.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749543161416"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      384,
+      384,
+      1,
+      1
+    ]
+  },
+  "1749938024288": {
+    "weight": "model.10.m.1.cv1.bn.weight",
+    "bias": "model.10.m.1.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938024400"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      384
+    ],
+    "_saved_running_var_sizes": [
+      384
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      384
+    ]
+  },
+  "1749938024120": {
+    "name": "SiLU",
+    "input": [
+      "1749938024288"
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ]
+  },
+  "1749938022720": {
+    "weight": "model.10.m.1.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938024120"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      384,
+      384,
+      3,
+      3
+    ]
+  },
+  "1749543160240": {
+    "weight": "model.10.m.1.cv2.bn.weight",
+    "bias": "model.10.m.1.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938022720"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      384
+    ],
+    "_saved_running_var_sizes": [
+      384
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      384
+    ]
+  },
+  "1749543161360": {
+    "name": "SiLU",
+    "input": [
+      "1749543160240"
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ]
+  },
+  "1749828763776": {
+    "name": "Add",
+    "input": [
+      "1749543161416",
+      "1749543161360"
+    ],
+    "_saved_alpha": 1
+  },
+  "1749938024064": {
+    "weight": "model.10.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749543158840"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      768,
+      11,
+      20
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      384,
+      768,
+      1,
+      1
+    ]
+  },
+  "1749543161192": {
+    "weight": "model.10.cv2.bn.weight",
+    "bias": "model.10.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938024064"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      384
+    ],
+    "_saved_running_var_sizes": [
+      384
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      384
+    ]
+  },
+  "1749543161752": {
+    "name": "SiLU",
+    "input": [
+      "1749543161192"
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ]
+  },
+  "1749828764504": {
+    "name": "Cat",
+    "input": [
+      "1749828763776",
+      "1749543161752"
+    ],
+    "_saved_dim": 1
+  },
+  "1749828765568": {
+    "weight": "model.10.cv3.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749828764504"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      768,
+      11,
+      20
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      768,
+      768,
+      1,
+      1
+    ]
+  },
+  "1749828765792": {
+    "weight": "model.10.cv3.bn.weight",
+    "bias": "model.10.cv3.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749828765568"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      768,
+      11,
+      20
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      768
+    ],
+    "_saved_running_var_sizes": [
+      768
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      768
+    ]
+  },
+  "1749828766296": {
+    "name": "SiLU",
+    "input": [
+      "1749828765792"
+    ],
+    "_saved_self_sizes": [
+      1,
+      768,
+      11,
+      20
+    ]
+  },
+  "1749828825160": {
+    "weight": "model.11.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749828766296"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      768,
+      11,
+      20
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      384,
+      768,
+      1,
+      1
+    ]
+  },
+  "1749828825496": {
+    "weight": "model.11.cv1.bn.weight",
+    "bias": "model.11.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749828825160"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      384
+    ],
+    "_saved_running_var_sizes": [
+      384
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      384
+    ]
+  },
+  "1749828826560": {
+    "name": "SiLU",
+    "input": [
+      "1749828825496"
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ]
+  },
+  "1749828826392": {
+    "name": "MaxPool2d",
+    "input": [
+      "1749828826560"
+    ],
+    "_saved_ceil_mode": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_kernel_size": [
+      5,
+      5
+    ],
+    "_saved_padding": [
+      2,
+      2
+    ],
+    "_saved_result1_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ]
+  },
+  "1749828826224": {
+    "name": "MaxPool2d",
+    "input": [
+      "1749828826392"
+    ],
+    "_saved_ceil_mode": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_kernel_size": [
+      5,
+      5
+    ],
+    "_saved_padding": [
+      2,
+      2
+    ],
+    "_saved_result1_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ]
+  },
+  "1749828826168": {
+    "name": "MaxPool2d",
+    "input": [
+      "1749828826224"
+    ],
+    "_saved_ceil_mode": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_kernel_size": [
+      5,
+      5
+    ],
+    "_saved_padding": [
+      2,
+      2
+    ],
+    "_saved_result1_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ]
+  },
+  "1749828827400": {
+    "name": "Cat",
+    "input": [
+      "1749828826560",
+      "1749828826392",
+      "1749828826224",
+      "1749828826168"
+    ],
+    "_saved_dim": 1
+  },
+  "1749828827960": {
+    "weight": "model.11.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749828827400"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      1536,
+      11,
+      20
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      768,
+      1536,
+      1,
+      1
+    ]
+  },
+  "1749828828856": {
+    "weight": "model.11.cv2.bn.weight",
+    "bias": "model.11.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749828827960"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      768,
+      11,
+      20
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      768
+    ],
+    "_saved_running_var_sizes": [
+      768
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      768
+    ]
+  },
+  "1749828894848": {
+    "name": "SiLU",
+    "input": [
+      "1749828828856"
+    ],
+    "_saved_self_sizes": [
+      1,
+      768,
+      11,
+      20
+    ]
+  },
+  "1749828895744": {
+    "weight": "model.12.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749828894848"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      768,
+      11,
+      20
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      576,
+      768,
+      1,
+      1
+    ]
+  },
+  "1749828896080": {
+    "weight": "model.12.bn.weight",
+    "bias": "model.12.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749828895744"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      576,
+      11,
+      20
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      576
+    ],
+    "_saved_running_var_sizes": [
+      576
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      576
+    ]
+  },
+  "1749828896864": {
+    "name": "SiLU",
+    "input": [
+      "1749828896080"
+    ],
+    "_saved_self_sizes": [
+      1,
+      576,
+      11,
+      20
+    ]
+  },
+  "1749828897256": {
+    "name": "Upsample",
+    "input": [
+      "1749828896864"
+    ],
+    "_saved_input_sizes": [
+      1,
+      576,
+      11,
+      20
+    ],
+    "_saved_scale_factors": [
+      2.0,
+      2.0
+    ]
+  },
+  "1749828898096": {
+    "name": "Cat",
+    "input": [
+      "1749828897256",
+      "1749828897088"
+    ],
+    "_saved_dim": 1
+  },
+  "1749828898656": {
+    "weight": "model.15.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749828898096"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      1152,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      288,
+      1152,
+      1,
+      1
+    ]
+  },
+  "1749828952696": {
+    "weight": "model.15.cv1.bn.weight",
+    "bias": "model.15.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749828898656"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      288
+    ],
+    "_saved_running_var_sizes": [
+      288
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      288
+    ]
+  },
+  "1749828953088": {
+    "name": "SiLU",
+    "input": [
+      "1749828952696"
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ]
+  },
+  "1749828954656": {
+    "weight": "model.15.m.0.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749828953088"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      288,
+      288,
+      1,
+      1
+    ]
+  },
+  "1749828954880": {
+    "weight": "model.15.m.0.cv1.bn.weight",
+    "bias": "model.15.m.0.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749828954656"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      288
+    ],
+    "_saved_running_var_sizes": [
+      288
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      288
+    ]
+  },
+  "1749828955720": {
+    "name": "SiLU",
+    "input": [
+      "1749828954880"
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ]
+  },
+  "1749829025976": {
+    "weight": "model.15.m.0.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749828955720"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      288,
+      288,
+      3,
+      3
+    ]
+  },
+  "1749829026648": {
+    "weight": "model.15.m.0.cv2.bn.weight",
+    "bias": "model.15.m.0.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749829025976"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      288
+    ],
+    "_saved_running_var_sizes": [
+      288
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      288
+    ]
+  },
+  "1749829027040": {
+    "name": "SiLU",
+    "input": [
+      "1749829026648"
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ]
+  },
+  "1749829028272": {
+    "weight": "model.15.m.1.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749829027040"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      288,
+      288,
+      1,
+      1
+    ]
+  },
+  "1749829028496": {
+    "weight": "model.15.m.1.cv1.bn.weight",
+    "bias": "model.15.m.1.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749829028272"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      288
+    ],
+    "_saved_running_var_sizes": [
+      288
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      288
+    ]
+  },
+  "1749829029336": {
+    "name": "SiLU",
+    "input": [
+      "1749829028496"
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ]
+  },
+  "1749829087304": {
+    "weight": "model.15.m.1.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749829029336"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      288,
+      288,
+      3,
+      3
+    ]
+  },
+  "1749829088088": {
+    "weight": "model.15.m.1.cv2.bn.weight",
+    "bias": "model.15.m.1.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749829087304"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      288
+    ],
+    "_saved_running_var_sizes": [
+      288
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      288
+    ]
+  },
+  "1749829088480": {
+    "name": "SiLU",
+    "input": [
+      "1749829088088"
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ]
+  },
+  "1749938093360": {
+    "weight": "model.15.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749828898096"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      1152,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      288,
+      1152,
+      1,
+      1
+    ]
+  },
+  "1749829087472": {
+    "weight": "model.15.cv2.bn.weight",
+    "bias": "model.15.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938093360"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      288
+    ],
+    "_saved_running_var_sizes": [
+      288
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      288
+    ]
+  },
+  "1749829088312": {
+    "name": "SiLU",
+    "input": [
+      "1749829087472"
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ]
+  },
+  "1749829089320": {
+    "name": "Cat",
+    "input": [
+      "1749829088480",
+      "1749829088312"
+    ],
+    "_saved_dim": 1
+  },
+  "1749829089880": {
+    "weight": "model.15.cv3.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749829089320"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      576,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      576,
+      576,
+      1,
+      1
+    ]
+  },
+  "1749829090608": {
+    "weight": "model.15.cv3.bn.weight",
+    "bias": "model.15.cv3.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749829089880"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      576,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      576
+    ],
+    "_saved_running_var_sizes": [
+      576
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      576
+    ]
+  },
+  "1749829091000": {
+    "name": "SiLU",
+    "input": [
+      "1749829090608"
+    ],
+    "_saved_self_sizes": [
+      1,
+      576,
+      22,
+      40
+    ]
+  },
+  "1749829157944": {
+    "weight": "model.16.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749829091000"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      576,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      384,
+      576,
+      1,
+      1
+    ]
+  },
+  "1749829158168": {
+    "weight": "model.16.bn.weight",
+    "bias": "model.16.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749829157944"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      384,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      384
+    ],
+    "_saved_running_var_sizes": [
+      384
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      384
+    ]
+  },
+  "1749829158504": {
+    "name": "SiLU",
+    "input": [
+      "1749829158168"
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      22,
+      40
+    ]
+  },
+  "1749829159232": {
+    "name": "Upsample",
+    "input": [
+      "1749829158504"
+    ],
+    "_saved_input_sizes": [
+      1,
+      384,
+      22,
+      40
+    ],
+    "_saved_scale_factors": [
+      2.0,
+      2.0
+    ]
+  },
+  "1749829159736": {
+    "name": "Cat",
+    "input": [
+      "1749829159232",
+      "1749829159176"
+    ],
+    "_saved_dim": 1
+  },
+  "1749829160632": {
+    "weight": "model.19.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749829159736"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      768,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      768,
+      1,
+      1
+    ]
+  },
+  "1749829218376": {
+    "weight": "model.19.cv1.bn.weight",
+    "bias": "model.19.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749829160632"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749829219328": {
+    "name": "SiLU",
+    "input": [
+      "1749829218376"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749829220336": {
+    "weight": "model.19.m.0.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749829219328"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      192,
+      1,
+      1
+    ]
+  },
+  "1749829220560": {
+    "weight": "model.19.m.0.cv1.bn.weight",
+    "bias": "model.19.m.0.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749829220336"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749829221064": {
+    "name": "SiLU",
+    "input": [
+      "1749829220560"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749829222072": {
+    "weight": "model.19.m.0.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749829221064"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      192,
+      3,
+      3
+    ]
+  },
+  "1749829283912": {
+    "weight": "model.19.m.0.cv2.bn.weight",
+    "bias": "model.19.m.0.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749829222072"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749829284640": {
+    "name": "SiLU",
+    "input": [
+      "1749829283912"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749829285704": {
+    "weight": "model.19.m.1.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749829284640"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      192,
+      1,
+      1
+    ]
+  },
+  "1749829285928": {
+    "weight": "model.19.m.1.cv1.bn.weight",
+    "bias": "model.19.m.1.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749829285704"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749829286432": {
+    "name": "SiLU",
+    "input": [
+      "1749829285928"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749829287664": {
+    "weight": "model.19.m.1.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749829286432"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      192,
+      3,
+      3
+    ]
+  },
+  "1749829361792": {
+    "weight": "model.19.m.1.cv2.bn.weight",
+    "bias": "model.19.m.1.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749829287664"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749829362520": {
+    "name": "SiLU",
+    "input": [
+      "1749829361792"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749938103688": {
+    "weight": "model.19.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749829159736"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      768,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      768,
+      1,
+      1
+    ]
+  },
+  "1749829287832": {
+    "weight": "model.19.cv2.bn.weight",
+    "bias": "model.19.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938103688"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749829362464": {
+    "name": "SiLU",
+    "input": [
+      "1749829287832"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749829363024": {
+    "name": "Cat",
+    "input": [
+      "1749829362520",
+      "1749829362464"
+    ],
+    "_saved_dim": 1
+  },
+  "1749829363920": {
+    "weight": "model.19.cv3.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749829363024"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      384,
+      384,
+      1,
+      1
+    ]
+  },
+  "1749829364256": {
+    "weight": "model.19.cv3.bn.weight",
+    "bias": "model.19.cv3.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749829363920"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      384,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      384
+    ],
+    "_saved_running_var_sizes": [
+      384
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      384
+    ]
+  },
+  "1749829365208": {
+    "name": "SiLU",
+    "input": [
+      "1749829364256"
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      44,
+      80
+    ]
+  },
+  "1749829423624": {
+    "weight": "model.20.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749829365208"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      384,
+      1,
+      1
+    ]
+  },
+  "1749829423848": {
+    "weight": "model.20.bn.weight",
+    "bias": "model.20.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749829423624"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749829424184": {
+    "name": "SiLU",
+    "input": [
+      "1749829423848"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749829425136": {
+    "name": "Upsample",
+    "input": [
+      "1749829424184"
+    ],
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_scale_factors": [
+      2.0,
+      2.0
+    ]
+  },
+  "1749829425528": {
+    "name": "Cat",
+    "input": [
+      "1749829425136",
+      "1749829424968"
+    ],
+    "_saved_dim": 1
+  },
+  "1749829426424": {
+    "weight": "model.23.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749829425528"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      88,
+      160
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      96,
+      384,
+      1,
+      1
+    ]
+  },
+  "1749829426760": {
+    "weight": "model.23.cv1.bn.weight",
+    "bias": "model.23.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749829426424"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      96
+    ],
+    "_saved_running_var_sizes": [
+      96
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      96
+    ]
+  },
+  "1749829497352": {
+    "name": "SiLU",
+    "input": [
+      "1749829426760"
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ]
+  },
+  "1749829497912": {
+    "weight": "model.23.m.0.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749829497352"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      96,
+      96,
+      1,
+      1
+    ]
+  },
+  "1749829498920": {
+    "weight": "model.23.m.0.cv1.bn.weight",
+    "bias": "model.23.m.0.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749829497912"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      96
+    ],
+    "_saved_running_var_sizes": [
+      96
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      96
+    ]
+  },
+  "1749829499312": {
+    "name": "SiLU",
+    "input": [
+      "1749829498920"
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ]
+  },
+  "1749829500208": {
+    "weight": "model.23.m.0.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749829499312"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      96,
+      96,
+      3,
+      3
+    ]
+  },
+  "1749829500544": {
+    "weight": "model.23.m.0.cv2.bn.weight",
+    "bias": "model.23.m.0.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749829500208"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      96
+    ],
+    "_saved_running_var_sizes": [
+      96
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      96
+    ]
+  },
+  "1749935927816": {
+    "name": "SiLU",
+    "input": [
+      "1749829500544"
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ]
+  },
+  "1749935928376": {
+    "weight": "model.23.m.1.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749935927816"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      96,
+      96,
+      1,
+      1
+    ]
+  },
+  "1749935929272": {
+    "weight": "model.23.m.1.cv1.bn.weight",
+    "bias": "model.23.m.1.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749935928376"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      96
+    ],
+    "_saved_running_var_sizes": [
+      96
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      96
+    ]
+  },
+  "1749935929664": {
+    "name": "SiLU",
+    "input": [
+      "1749935929272"
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ]
+  },
+  "1749935930560": {
+    "weight": "model.23.m.1.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749935929664"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      96,
+      96,
+      3,
+      3
+    ]
+  },
+  "1749935930896": {
+    "weight": "model.23.m.1.cv2.bn.weight",
+    "bias": "model.23.m.1.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749935930560"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      96
+    ],
+    "_saved_running_var_sizes": [
+      96
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      96
+    ]
+  },
+  "1749935993352": {
+    "name": "SiLU",
+    "input": [
+      "1749935930896"
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ]
+  },
+  "1749938105760": {
+    "weight": "model.23.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749829425528"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      88,
+      160
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      96,
+      384,
+      1,
+      1
+    ]
+  },
+  "1749935930728": {
+    "weight": "model.23.cv2.bn.weight",
+    "bias": "model.23.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938105760"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      96,
+      88,
+      160
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      96
+    ],
+    "_saved_running_var_sizes": [
+      96
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      96
+    ]
+  },
+  "1749935993184": {
+    "name": "SiLU",
+    "input": [
+      "1749935930728"
+    ],
+    "_saved_self_sizes": [
+      1,
+      96,
+      88,
+      160
+    ]
+  },
+  "1749935993744": {
+    "name": "Cat",
+    "input": [
+      "1749935993352",
+      "1749935993184"
+    ],
+    "_saved_dim": 1
+  },
+  "1749935994640": {
+    "weight": "model.23.cv3.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749935993744"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      88,
+      160
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      192,
+      1,
+      1
+    ]
+  },
+  "1749935994976": {
+    "weight": "model.23.cv3.bn.weight",
+    "bias": "model.23.cv3.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749935994640"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      88,
+      160
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749935995928": {
+    "name": "SiLU",
+    "input": [
+      "1749935994976"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      88,
+      160
+    ]
+  },
+  "1749935996432": {
+    "bias": "model.33.m.0.bias",
+    "weight": "model.33.m.0.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749935995928"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      88,
+      160
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      30,
+      192,
+      1,
+      1
+    ]
+  },
+  "1749938196696": {
+    "name": "YOLOV5",
+    "input": [
+      "1749935996432"
+    ],
+    "anchor": [
+      2,
+      7,
+      5,
+      15,
+      12,
+      10
+    ],
+    "max_num_obj": 1000,
+    "down_sample_ratio": 8
+  },
+  "1749936072888": {
+    "name": "Output",
+    "input": [
+      "1749938196696"
+    ],
+    "shape": [
+      1,
+      6001,
+      1,
+      1
+    ]
+  },
+  "1749938164176": {
+    "weight": "model.24.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749935995928"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      88,
+      160
+    ],
+    "_saved_stride": [
+      2,
+      2
+    ],
+    "_saved_weight_sizes": [
+      192,
+      192,
+      3,
+      3
+    ]
+  },
+  "1749938164064": {
+    "weight": "model.24.bn.weight",
+    "bias": "model.24.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938164176"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749938163952": {
+    "name": "SiLU",
+    "input": [
+      "1749938164064"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749938163784": {
+    "name": "Cat",
+    "input": [
+      "1749938163952",
+      "1749829424184"
+    ],
+    "_saved_dim": 1
+  },
+  "1749938130728": {
+    "weight": "model.26.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938163784"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      384,
+      1,
+      1
+    ]
+  },
+  "1749938130616": {
+    "weight": "model.26.cv1.bn.weight",
+    "bias": "model.26.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938130728"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749938130448": {
+    "name": "SiLU",
+    "input": [
+      "1749938130616"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749938130224": {
+    "weight": "model.26.m.0.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938130448"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      192,
+      1,
+      1
+    ]
+  },
+  "1749938130112": {
+    "weight": "model.26.m.0.cv1.bn.weight",
+    "bias": "model.26.m.0.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938130224"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749938129944": {
+    "name": "SiLU",
+    "input": [
+      "1749938130112"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749938129720": {
+    "weight": "model.26.m.0.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938129944"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      192,
+      3,
+      3
+    ]
+  },
+  "1749938129608": {
+    "weight": "model.26.m.0.cv2.bn.weight",
+    "bias": "model.26.m.0.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938129720"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749938129440": {
+    "name": "SiLU",
+    "input": [
+      "1749938129608"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749938129216": {
+    "weight": "model.26.m.1.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938129440"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      192,
+      1,
+      1
+    ]
+  },
+  "1749938129104": {
+    "weight": "model.26.m.1.cv1.bn.weight",
+    "bias": "model.26.m.1.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938129216"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749938128936": {
+    "name": "SiLU",
+    "input": [
+      "1749938129104"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749938128712": {
+    "weight": "model.26.m.1.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938128936"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      192,
+      3,
+      3
+    ]
+  },
+  "1749938128600": {
+    "weight": "model.26.m.1.cv2.bn.weight",
+    "bias": "model.26.m.1.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938128712"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749938128432": {
+    "name": "SiLU",
+    "input": [
+      "1749938128600"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749938165632": {
+    "weight": "model.26.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938163784"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      192,
+      384,
+      1,
+      1
+    ]
+  },
+  "1749938128656": {
+    "weight": "model.26.cv2.bn.weight",
+    "bias": "model.26.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938165632"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      192,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      192
+    ],
+    "_saved_running_var_sizes": [
+      192
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      192
+    ]
+  },
+  "1749938128488": {
+    "name": "SiLU",
+    "input": [
+      "1749938128656"
+    ],
+    "_saved_self_sizes": [
+      1,
+      192,
+      44,
+      80
+    ]
+  },
+  "1749938128264": {
+    "name": "Cat",
+    "input": [
+      "1749938128432",
+      "1749938128488"
+    ],
+    "_saved_dim": 1
+  },
+  "1749938128040": {
+    "weight": "model.26.cv3.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938128264"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      384,
+      384,
+      1,
+      1
+    ]
+  },
+  "1749938127928": {
+    "weight": "model.26.cv3.bn.weight",
+    "bias": "model.26.cv3.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938128040"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      384,
+      44,
+      80
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      384
+    ],
+    "_saved_running_var_sizes": [
+      384
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      384
+    ]
+  },
+  "1749938127760": {
+    "name": "SiLU",
+    "input": [
+      "1749938127928"
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      44,
+      80
+    ]
+  },
+  "1749938127536": {
+    "bias": "model.33.m.1.bias",
+    "weight": "model.33.m.1.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938127760"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      30,
+      384,
+      1,
+      1
+    ]
+  },
+  "1749938155808": {
+    "name": "YOLOV5",
+    "input": [
+      "1749938127536"
+    ],
+    "anchor": [
+      21,
+      15,
+      12,
+      27,
+      24,
+      27
+    ],
+    "max_num_obj": 1000,
+    "down_sample_ratio": 16
+  },
+  "1749936073968": {
+    "name": "Output",
+    "input": [
+      "1749938155808"
+    ],
+    "shape": [
+      1,
+      6001,
+      1,
+      1
+    ]
+  },
+  "1749938187120": {
+    "weight": "model.27.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938127760"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      44,
+      80
+    ],
+    "_saved_stride": [
+      2,
+      2
+    ],
+    "_saved_weight_sizes": [
+      384,
+      384,
+      3,
+      3
+    ]
+  },
+  "1749938187008": {
+    "weight": "model.27.bn.weight",
+    "bias": "model.27.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938187120"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      384,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      384
+    ],
+    "_saved_running_var_sizes": [
+      384
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      384
+    ]
+  },
+  "1749938186896": {
+    "name": "SiLU",
+    "input": [
+      "1749938187008"
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      22,
+      40
+    ]
+  },
+  "1749938186728": {
+    "name": "Cat",
+    "input": [
+      "1749938186896",
+      "1749829158504"
+    ],
+    "_saved_dim": 1
+  },
+  "1749938186504": {
+    "weight": "model.29.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938186728"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      768,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      288,
+      768,
+      1,
+      1
+    ]
+  },
+  "1749938186392": {
+    "weight": "model.29.cv1.bn.weight",
+    "bias": "model.29.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938186504"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      288
+    ],
+    "_saved_running_var_sizes": [
+      288
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      288
+    ]
+  },
+  "1749938186224": {
+    "name": "SiLU",
+    "input": [
+      "1749938186392"
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ]
+  },
+  "1749938186000": {
+    "weight": "model.29.m.0.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938186224"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      288,
+      288,
+      1,
+      1
+    ]
+  },
+  "1749938185888": {
+    "weight": "model.29.m.0.cv1.bn.weight",
+    "bias": "model.29.m.0.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938186000"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      288
+    ],
+    "_saved_running_var_sizes": [
+      288
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      288
+    ]
+  },
+  "1749938185720": {
+    "name": "SiLU",
+    "input": [
+      "1749938185888"
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ]
+  },
+  "1749938185496": {
+    "weight": "model.29.m.0.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938185720"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      288,
+      288,
+      3,
+      3
+    ]
+  },
+  "1749938185384": {
+    "weight": "model.29.m.0.cv2.bn.weight",
+    "bias": "model.29.m.0.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938185496"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      288
+    ],
+    "_saved_running_var_sizes": [
+      288
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      288
+    ]
+  },
+  "1749938185216": {
+    "name": "SiLU",
+    "input": [
+      "1749938185384"
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ]
+  },
+  "1749938184992": {
+    "weight": "model.29.m.1.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938185216"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      288,
+      288,
+      1,
+      1
+    ]
+  },
+  "1749938184880": {
+    "weight": "model.29.m.1.cv1.bn.weight",
+    "bias": "model.29.m.1.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938184992"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      288
+    ],
+    "_saved_running_var_sizes": [
+      288
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      288
+    ]
+  },
+  "1749938184712": {
+    "name": "SiLU",
+    "input": [
+      "1749938184880"
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ]
+  },
+  "1749938184488": {
+    "weight": "model.29.m.1.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938184712"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      288,
+      288,
+      3,
+      3
+    ]
+  },
+  "1749938184376": {
+    "weight": "model.29.m.1.cv2.bn.weight",
+    "bias": "model.29.m.1.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938184488"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      288
+    ],
+    "_saved_running_var_sizes": [
+      288
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      288
+    ]
+  },
+  "1749938167760": {
+    "name": "SiLU",
+    "input": [
+      "1749938184376"
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ]
+  },
+  "1749938200928": {
+    "weight": "model.29.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938186728"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      768,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      288,
+      768,
+      1,
+      1
+    ]
+  },
+  "1749938184432": {
+    "weight": "model.29.cv2.bn.weight",
+    "bias": "model.29.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938200928"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      288,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      288
+    ],
+    "_saved_running_var_sizes": [
+      288
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      288
+    ]
+  },
+  "1749938184264": {
+    "name": "SiLU",
+    "input": [
+      "1749938184432"
+    ],
+    "_saved_self_sizes": [
+      1,
+      288,
+      22,
+      40
+    ]
+  },
+  "1749938167592": {
+    "name": "Cat",
+    "input": [
+      "1749938167760",
+      "1749938184264"
+    ],
+    "_saved_dim": 1
+  },
+  "1749938167368": {
+    "weight": "model.29.cv3.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938167592"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      576,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      576,
+      576,
+      1,
+      1
+    ]
+  },
+  "1749938167256": {
+    "weight": "model.29.cv3.bn.weight",
+    "bias": "model.29.cv3.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938167368"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      576,
+      22,
+      40
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      576
+    ],
+    "_saved_running_var_sizes": [
+      576
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      576
+    ]
+  },
+  "1749938167088": {
+    "name": "SiLU",
+    "input": [
+      "1749938167256"
+    ],
+    "_saved_self_sizes": [
+      1,
+      576,
+      22,
+      40
+    ]
+  },
+  "1749938166864": {
+    "bias": "model.33.m.2.bias",
+    "weight": "model.33.m.2.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938167088"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      576,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      30,
+      576,
+      1,
+      1
+    ]
+  },
+  "1749938155880": {
+    "name": "YOLOV5",
+    "input": [
+      "1749938166864"
+    ],
+    "anchor": [
+      40,
+      19,
+      51,
+      30,
+      37,
+      51
+    ],
+    "max_num_obj": 1000,
+    "down_sample_ratio": 32
+  },
+  "1749936073104": {
+    "name": "Output",
+    "input": [
+      "1749938155880"
+    ],
+    "shape": [
+      1,
+      6001,
+      1,
+      1
+    ]
+  },
+  "1749938222416": {
+    "weight": "model.30.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938167088"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      576,
+      22,
+      40
+    ],
+    "_saved_stride": [
+      2,
+      2
+    ],
+    "_saved_weight_sizes": [
+      576,
+      576,
+      3,
+      3
+    ]
+  },
+  "1749938222304": {
+    "weight": "model.30.bn.weight",
+    "bias": "model.30.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938222416"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      576,
+      11,
+      20
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      576
+    ],
+    "_saved_running_var_sizes": [
+      576
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      576
+    ]
+  },
+  "1749938222192": {
+    "name": "SiLU",
+    "input": [
+      "1749938222304"
+    ],
+    "_saved_self_sizes": [
+      1,
+      576,
+      11,
+      20
+    ]
+  },
+  "1749938222024": {
+    "name": "Cat",
+    "input": [
+      "1749938222192",
+      "1749828896864"
+    ],
+    "_saved_dim": 1
+  },
+  "1749938221800": {
+    "weight": "model.32.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938222024"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      1152,
+      11,
+      20
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      384,
+      1152,
+      1,
+      1
+    ]
+  },
+  "1749938221688": {
+    "weight": "model.32.cv1.bn.weight",
+    "bias": "model.32.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938221800"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      384
+    ],
+    "_saved_running_var_sizes": [
+      384
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      384
+    ]
+  },
+  "1749938221520": {
+    "name": "SiLU",
+    "input": [
+      "1749938221688"
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ]
+  },
+  "1749938221296": {
+    "weight": "model.32.m.0.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938221520"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      384,
+      384,
+      1,
+      1
+    ]
+  },
+  "1749938221184": {
+    "weight": "model.32.m.0.cv1.bn.weight",
+    "bias": "model.32.m.0.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938221296"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      384
+    ],
+    "_saved_running_var_sizes": [
+      384
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      384
+    ]
+  },
+  "1749938204568": {
+    "name": "SiLU",
+    "input": [
+      "1749938221184"
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ]
+  },
+  "1749938204344": {
+    "weight": "model.32.m.0.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938204568"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      384,
+      384,
+      3,
+      3
+    ]
+  },
+  "1749938204232": {
+    "weight": "model.32.m.0.cv2.bn.weight",
+    "bias": "model.32.m.0.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938204344"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      384
+    ],
+    "_saved_running_var_sizes": [
+      384
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      384
+    ]
+  },
+  "1749938204064": {
+    "name": "SiLU",
+    "input": [
+      "1749938204232"
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ]
+  },
+  "1749938203840": {
+    "weight": "model.32.m.1.cv1.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938204064"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      384,
+      384,
+      1,
+      1
+    ]
+  },
+  "1749938203728": {
+    "weight": "model.32.m.1.cv1.bn.weight",
+    "bias": "model.32.m.1.cv1.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938203840"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      384
+    ],
+    "_saved_running_var_sizes": [
+      384
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      384
+    ]
+  },
+  "1749938203560": {
+    "name": "SiLU",
+    "input": [
+      "1749938203728"
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ]
+  },
+  "1749938203336": {
+    "weight": "model.32.m.1.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938203560"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      1,
+      1
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      384,
+      384,
+      3,
+      3
+    ]
+  },
+  "1749938203224": {
+    "weight": "model.32.m.1.cv2.bn.weight",
+    "bias": "model.32.m.1.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938203336"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      384
+    ],
+    "_saved_running_var_sizes": [
+      384
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      384
+    ]
+  },
+  "1749938203056": {
+    "name": "SiLU",
+    "input": [
+      "1749938203224"
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ]
+  },
+  "1749938223872": {
+    "weight": "model.32.cv2.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938222024"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      1152,
+      11,
+      20
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      384,
+      1152,
+      1,
+      1
+    ]
+  },
+  "1749938203280": {
+    "weight": "model.32.cv2.bn.weight",
+    "bias": "model.32.cv2.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938223872"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      384,
+      11,
+      20
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      384
+    ],
+    "_saved_running_var_sizes": [
+      384
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      384
+    ]
+  },
+  "1749938203112": {
+    "name": "SiLU",
+    "input": [
+      "1749938203280"
+    ],
+    "_saved_self_sizes": [
+      1,
+      384,
+      11,
+      20
+    ]
+  },
+  "1749938202888": {
+    "name": "Cat",
+    "input": [
+      "1749938203056",
+      "1749938203112"
+    ],
+    "_saved_dim": 1
+  },
+  "1749938202664": {
+    "weight": "model.32.cv3.conv.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938202888"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      768,
+      11,
+      20
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      768,
+      768,
+      1,
+      1
+    ]
+  },
+  "1749938202552": {
+    "weight": "model.32.cv3.bn.weight",
+    "bias": "model.32.cv3.bn.bias",
+    "name": "BatchNorm2d",
+    "input": [
+      "1749938202664"
+    ],
+    "_saved_epsilon": 0.001,
+    "_saved_input_sizes": [
+      1,
+      768,
+      11,
+      20
+    ],
+    "_saved_result3_sizes": [
+      0
+    ],
+    "_saved_running_mean_sizes": [
+      768
+    ],
+    "_saved_running_var_sizes": [
+      768
+    ],
+    "_saved_training": false,
+    "_saved_weight_sizes": [
+      768
+    ]
+  },
+  "1749938202384": {
+    "name": "SiLU",
+    "input": [
+      "1749938202552"
+    ],
+    "_saved_self_sizes": [
+      1,
+      768,
+      11,
+      20
+    ]
+  },
+  "1749938202160": {
+    "bias": "model.33.m.3.bias",
+    "weight": "model.33.m.3.weight",
+    "name": "Conv2d",
+    "input": [
+      "1749938202384"
+    ],
+    "_saved_allow_tf32": true,
+    "_saved_benchmark": false,
+    "_saved_deterministic": false,
+    "_saved_dilation": [
+      1,
+      1
+    ],
+    "_saved_groups": 1,
+    "_saved_padding": [
+      0,
+      0
+    ],
+    "_saved_self_sizes": [
+      1,
+      768,
+      11,
+      20
+    ],
+    "_saved_stride": [
+      1,
+      1
+    ],
+    "_saved_weight_sizes": [
+      30,
+      768,
+      1,
+      1
+    ]
+  },
+  "1749938156168": {
+    "name": "YOLOV5",
+    "input": [
+      "1749938202160"
+    ],
+    "anchor": [
+      80,
+      43,
+      94,
+      85,
+      219,
+      125
+    ],
+    "max_num_obj": 1000,
+    "down_sample_ratio": 64
+  },
+  "1749936073176": {
+    "name": "Output",
+    "input": [
+      "1749938156168"
+    ],
+    "shape": [
+      1,
+      6001,
+      1,
+      1
+    ]
+  }
+}
