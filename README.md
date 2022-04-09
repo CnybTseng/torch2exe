@@ -16,7 +16,7 @@ jsoncpp-1.9.4 <br>
 Firstly, clone the repository: <br>
 > `git clone https://github.com/CnybTseng/torch2exe.git` <br>
 
-It is highly recommended to compile the project with ninja. You need to install [ninja](https://ninja-build.org/) first. On Windows system, you also need to install [microsoft visual c++ build tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
+It is highly recommended to compile the project with ninja. You need to install [ninja](https://ninja-build.org/) first. On Windows system, you also need to install [microsoft visual c++ build tools](https://docs.microsoft.com/en-us/visualstudio/releases/2019/history#release-dates-and-build-numbers).
 
 On windows: <br>
 > `cd torch2exe` <br>
