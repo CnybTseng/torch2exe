@@ -30,4 +30,4 @@ On linux: <br>
 
 Usually, on the target platform, the output decoder of the model does not have ready-made operators and needs to be customized in the form of plug-ins. Therefore, the calculation logic of this part should not be included in the PyTorch style description file of the model. Take YOLOv5m6 as an example, output 4 tensors, and then parse these 4 tensors to get the detection result of the object, then the details of parsing these 4 tensors are not suitable for direct translation into the calculation graph, so the original code should be slightly modified , feed forward until the output of these 4 tensors.
 
-### 2.2 Perform model forward and generate model code
+### 2.2 Perform model feed forward and generate model code
