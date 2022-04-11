@@ -1,4 +1,5 @@
 file(GLOB dirs LIST_DIRECTORIES true RELATIVE ${CMAKE_CURRENT_LIST_DIR} *)
+list(REMOVE_ITEM dirs .gitignore)
 list(REMOVE_ITEM dirs CMakeLists.txt)
 foreach(model ${dirs})
 	file(GLOB_RECURSE SOURCE_FILES ${CMAKE_CURRENT_LIST_DIR}/${model}/*.cpp)
