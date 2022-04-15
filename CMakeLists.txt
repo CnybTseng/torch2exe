@@ -81,15 +81,13 @@ endif(WIN32)
 add_definitions(-DALGLOG_DEBUG)
 add_definitions(-DALGORITHM_DLL)
 add_definitions(-DALGORITHM_DLL_EXPORTS)
-add_definitions(-DAPI_EXPORTS)
 option(CUDA_USE_STATIC_CUDA_RUNTIME OFF)
 set(CMAKE_CXX_STANDARD 11)
 
-set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS};-g;-G;-arch=compute_75;-code=sm_75)
+set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS};-g;-G;-arch=compute_75;-gencode=arch=compute_75,code=sm_75;-gencode=arch=compute_86,code=sm_86)
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 	set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS};-std=c++11)
 endif()
-
 
 if(MSVC)
 	set(CompilerFlags
@@ -114,6 +112,8 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
 endif()
 
 add_subdirectory(model)
+
+list(APPEND CMAKE_INSTALL_RPATH ${CMAKE_INSTALL_PREFIX}/lib)
 
 cuda_add_library(${PROJECT_NAME} SHARED ${SRCS})
 target_link_libraries(${PROJECT_NAME} nvinfer cuda cudart ${OpenCV_LIBS} jsoncpp)

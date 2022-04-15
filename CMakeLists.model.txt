@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
+
+project(model)
+
+include_directories($ENV{COMPUTER_VISION_TOOLKIT_ROOT}/include)
+
+add_definitions(-DALGORITHM_DLL)
+add_definitions(-DALGORITHM_DLL_EXPORTS)
+
+add_subdirectory(model)
