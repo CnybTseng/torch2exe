@@ -87,8 +87,10 @@ public:
 		
 		AlgorithmListSP algorithms = AlgorithmListSP(
 			reinterpret_cast<AlgorithmList *>(data), [](void *p){
-				LogDebug("delete [] algorithm list\n");
-				delete [] (char *)p;
+				if (p) {
+					LogDebug("delete [] algorithm list\n");
+					delete [] (char *)p;
+				}
 			}
 		);
 		algorithms->count = count;

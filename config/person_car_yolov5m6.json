@@ -13,16 +13,13 @@
 	
 	// 模型可以检测的物体类别. 类别列表(包括顺序)必须与模型严格匹配.
 	"categories": [
-		"blkbag",
-		"flag",
-		"pipeline",
 		"person",
 		"car"
 	],
 	
 	// 模型库文件路径
-	"id_weight_path": "model/opi_yolov5m6.dll",
-	
+	"id_weight_path": "model/person_car_yolov5m6.dll",
+
 	// 启用半精度浮点数推理
-	"use_fp16": true
+	"use_fp16": true,
 }

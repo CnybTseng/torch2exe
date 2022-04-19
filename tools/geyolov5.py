@@ -6,7 +6,7 @@ import os.path as osp
 import sys
 import torch
 
-sys.path.append(osp.join(osp.split(osp.realpath(__file__))[0], osp.pardir, osp.pardir, 'yolov5'))
+sys.path.append(osp.join(osp.split(osp.realpath(__file__))[0], osp.pardir, osp.pardir, 'tseng', 'projects', 'yolov5'))
 
 from gexporter import gexporter, codegen
 from models.experimental import attempt_load

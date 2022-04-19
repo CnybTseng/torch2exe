@@ -55,8 +55,10 @@ bool Configurer::init(const char *cfg)
 	ifs.seekg(0, ifs.beg);
 
 	buffer.reset(new (std::nothrow) char[size], [](char *p){
-		LogDebug("delete [] configuration buffer\n");
-		delete [] p;
+		if (p) {
+			LogDebug("delete [] configuration buffer\n");
+			delete [] p;
+		}
 	});
 	if (!buffer) {
 		ifs.close();

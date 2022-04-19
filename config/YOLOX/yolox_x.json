@@ -96,8 +96,8 @@
 	],
 	
 	// 模型库文件路径
-	"id_weight_path": "model/yolox_m.dll",
+	"id_weight_path": "model/yolox_x.dll",
 	
 	// 启用半精度浮点数推理
-	"use_fp16": false
+	"use_fp16": true
 }

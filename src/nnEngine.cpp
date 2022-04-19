@@ -119,8 +119,10 @@ bool NNEngine::build(const char *cfg)
 	
 	std::shared_ptr<void> dll(
 		open_dll(model_path.c_str()), [](void *p){
-			LogDebug("close_dll\n");
-			close_dll(p);
+			if (p) {
+				LogDebug("close_dll\n");
+				close_dll(p);
+			}
 		}
 	);
 	if (!dll) {
@@ -170,16 +172,20 @@ bool NNEngine::build(const char *cfg)
 		LogDebug("%s isn't exists, build it first\n", engine_path.c_str());
 		std::unique_ptr<nvinfer1::IBuilder, Deleter> builder(
 			nvinfer1::createInferBuilder(logger), [](void *p){
-				LogDebug("nvinfer1::IBuilder::destroy\n");
-				((nvinfer1::IBuilder *)p)->destroy();
+				if (p) {
+					LogDebug("nvinfer1::IBuilder::destroy\n");
+					((nvinfer1::IBuilder *)p)->destroy();
+				}
 			}
 		);
 		builder->setMaxBatchSize(batch_size);
 		
 		std::unique_ptr<nvinfer1::IBuilderConfig, Deleter> config(
 			builder->createBuilderConfig(), [](void *p){
-				LogDebug("nvinfer1::IBuilderConfig::destroy\n");
-				((nvinfer1::IBuilderConfig *)p)->destroy();
+				if (p) {
+					LogDebug("nvinfer1::IBuilderConfig::destroy\n");
+					((nvinfer1::IBuilderConfig *)p)->destroy();
+				}
 			}
 		);
 		config->setMaxWorkspaceSize(16_MiB);
@@ -195,8 +201,10 @@ bool NNEngine::build(const char *cfg)
 		ctx.len_read = 0;
 		ctx.network.reset(
 			builder->createNetworkV2(0U), [](void *p){
-				LogDebug("nvinfer1::INetworkDefinition::destroy\n");
-				((nvinfer1::INetworkDefinition *)p)->destroy();
+				if (p) {
+					LogDebug("nvinfer1::INetworkDefinition::destroy\n");
+					((nvinfer1::INetworkDefinition *)p)->destroy();
+				}
 			}
 		);
 		
@@ -227,8 +235,10 @@ bool NNEngine::build(const char *cfg)
 
 		std::unique_ptr<nvinfer1::ICudaEngine, Deleter> engine(
 			builder->buildEngineWithConfig(*ctx.network.get(), *config.get()), [](void *p){
-				LogDebug("nvinfer1::ICudaEngine::destroy\n");
-				((nvinfer1::ICudaEngine *)p)->destroy();
+				if (p) {
+					LogDebug("nvinfer1::ICudaEngine::destroy\n");
+					((nvinfer1::ICudaEngine *)p)->destroy();
+				}
 			}
 		);
 		if (!engine) {
@@ -238,8 +248,10 @@ bool NNEngine::build(const char *cfg)
 		
 		std::unique_ptr<nvinfer1::IHostMemory, Deleter> hmem(
 			engine->serialize(), [](void *p){
-				LogDebug("nvinfer1::IHostMemory::destroy\n");
-				((nvinfer1::IHostMemory *)p)->destroy();
+				if (p) {
+					LogDebug("nvinfer1::IHostMemory::destroy\n");
+					((nvinfer1::IHostMemory *)p)->destroy();
+				}
 			}
 		);
 		if (!hmem) {
@@ -307,8 +319,10 @@ bool NNEngine::create_context(const char *engine_path)
 	ifs.seekg(0, ifs.beg);
 	
 	std::shared_ptr<char[]> blob(new (std::nothrow) char[size], [](char *p){
-		LogDebug("delete [] blob\n");
-		delete [] p;
+		if (p) {
+			LogDebug("delete [] blob\n");
+			delete [] p;
+		}
 	});
 	if (!blob) {
 		LogError("allocate memory failed\n");
@@ -327,6 +341,11 @@ bool NNEngine::create_context(const char *engine_path)
 
 	rt = createInferRuntime(logger);
 	cue = rt->deserializeCudaEngine(blob.get(), size);
+	if (!cue) {
+		LogError("deserialize cuda engine failed\n");
+		return false;
+	}
+
 	ctx = cue->createExecutionContext();
 	return true;
 }

@@ -104,8 +104,10 @@ bool YOLOV5::set(const char *id, const Json::Value &cfg, NetworkContext &ctx)
 	pfc.fields = fields;
 	std::shared_ptr<nvinfer1::IPluginV2> plugin(
 		creator->createPlugin(id, &pfc), [](void *p){
-			LogDebug("destroy YOLOV5 plugin\n");
-			((nvinfer1::IPluginV2 *)p)->destroy();
+			if (p) {
+				LogDebug("destroy YOLOV5 plugin\n");
+				((nvinfer1::IPluginV2 *)p)->destroy();
+			}
 	});
 	
 	nvinfer1::ITensor *inputs[] = {input};
