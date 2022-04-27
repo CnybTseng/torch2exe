@@ -84,7 +84,7 @@ add_definitions(-DALGORITHM_DLL_EXPORTS)
 option(CUDA_USE_STATIC_CUDA_RUNTIME OFF)
 set(CMAKE_CXX_STANDARD 11)
 
-set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS};-g;-G;-arch=compute_75;-gencode=arch=compute_75,code=sm_75;-gencode=arch=compute_86,code=sm_86)
+set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS};-g;-G;-arch=compute_75;-gencode=arch=compute_61,code=sm_61;-gencode=arch=compute_75,code=sm_75;-gencode=arch=compute_86,code=sm_86)
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 	set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS};-std=c++11)
 endif()

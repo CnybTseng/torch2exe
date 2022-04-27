@@ -101,57 +101,22 @@ static void render_objects(cv::Mat &img, const algorithm::DetectorOutputSP &objs
 	}
 }
 
-struct ArgParser
-{
-	ArgParser() :
-		min_nargs(3),
-		alg_name("YOLOV5"),
-		save_path("objs/"),
-		loops(1)
-	{}
-	void parse(int argc, char *argv[])
-	{
-		if (argc < min_nargs) {
-			fprintf(stdout, "Usage:\n\t%s cfg_path img_path [--alg_name alg_name] [--save_path save_path] [--loops loops]\n", argv[0]);
-			exit(-1);
-		}
-		cfg_path = std::string(argv[1]);
-		img_path = std::string(argv[2]);
-		int i = min_nargs;
-		for (; i < argc; ++i) {
-			if (!strcmp(argv[i], "--alg_name")) {
-				if (++i >= argc) goto FAIL;
-				alg_name = std::string(argv[i]);
-			} else if (!strcmp(argv[i], "--save_path")) {
-				if (++i >= argc) goto FAIL;
-				save_path = std::string(argv[i]);
-			} else if (!strcmp(argv[i], "--loops")) {
-				if (++i >= argc) goto FAIL;
-				loops = atoi(argv[i]);
-			} else {
-				fprintf(stderr, "invalid argument name: %s\n", argv[i]);
-				exit(-1);
-			}
-			fprintf(stdout, "optional argument: %s %s\n", argv[i - 1], argv[i]);
-		}
-		return;
-FAIL:
-		fprintf(stderr, "missing argument value: %s\n", argv[i - 1]);
-		exit(-1);
-	}
-
-	const int min_nargs;
-	std::string alg_name;
-	std::string cfg_path;
-	std::string img_path;
-	std::string save_path;
-	int loops;
-};
-
 int main(int argc, char *argv[])
 {
-	ArgParser parser;
-	parser.parse(argc, argv);
+	const char *keys =
+		"{ h             help   |                              | print help message }"
+        "{ alg_name             | YOLOX                        | the algorithm need to be created }"
+        "{ cfg_path             | ../config/YOLOX/yolox_m.json | algorithm configuration file path }"
+        "{ img_path             | ../../imgs/station.jpeg      | image path }"
+        "{ loops                | 1                            | running loops }"
+        "{ save_path            | objs/                        | output image storage path }";
+	
+	cv::CommandLineParser cmd(argc, argv, keys);
+	if (cmd.has("help") || !cmd.check()) {
+        cmd.printMessage();
+        cmd.printErrors();
+        return 0;
+    }
 
 	// 您可以部分控制日志系统的行为[可选操作]
 	// algorithm::Algorithm::register_logger(custom_logger);
@@ -163,24 +128,25 @@ int main(int argc, char *argv[])
 	// }
 
 	// 创建算法实例
-	auto model = algorithm::Algorithm::create(parser.alg_name.c_str());
+	auto model = algorithm::Algorithm::create(cmd.get<std::string>("alg_name").c_str());
 	if (!model) {
 		fprintf(stderr, "create algorithm failed\n");
 		return -1;
 	}
 	
 	// 初始化算法实例
-	if (!model->init(parser.cfg_path.c_str())) {
+	if (!model->init(cmd.get<std::string>("cfg_path").c_str())) {
 		fprintf(stderr, "initialize algorithm failed\n");
 		return -1;
 	}
 	
-	int loops = parser.loops;
+	int loops = cmd.get<int>("loops");
 	bool save = loops == 1;
 	int count = 0;
 	float latency = 0;
 	std::vector<cv::String> files;
-	cv::glob(parser.img_path, files);
+	cv::glob(cmd.get<std::string>("img_path"), files);
+	std::string save_path = cmd.get<std::string>("save_path");
 	for (size_t i = 0; i < files.size(); ++i) {
 		cv::Mat mat = cv::imread(files[i]);
 		if (mat.empty()) {
@@ -199,7 +165,7 @@ int main(int argc, char *argv[])
 
 		// 更新图像数据
 		memcpy(image->data, mat.data, size);		
-		algorithm::BlobSP output;
+		algorithm::BlobSP output(nullptr);
 
 		// 执行算法实例
 		auto start = std::chrono::high_resolution_clock::now();
@@ -223,7 +189,7 @@ int main(int argc, char *argv[])
 		// 在图像上渲染物体
 		fprintf(stdout, "%s\n", files[i].c_str());
 		render_objects(mat, objs);
-		std::string filename = parser.save_path + filename_from_path(files[i]);
+		std::string filename = save_path + filename_from_path(files[i]);
 		cv::imwrite(filename, mat);
 	}
 
