@@ -23,12 +23,12 @@
  * This file is part of torch2exe.
  *
  * @file
- * @brief Tensor concatenation operator.
+ * @brief Tensor transposition operator.
  *
  * @author Zhiwei Zeng
  * @email chinaybtseng@gmail.com
  * @version 1.0
- * @date April 11, 2022
+ * @date May 7, 2022
  * @license The MIT License (MIT)
  *
  ******************************************************************/
@@ -37,63 +37,73 @@
 
 #include <NvInfer.h>
 
-#include "cat.h"
+#include "transpose.h"
 #include "utils/configurer.h"
 #include "utils/logger.h"
 
 namespace algorithm {
 namespace tensorrt {
 
-std::unique_ptr<Operator, Deleter> Cat::create(const char *name)
+std::unique_ptr<Operator, Deleter> Transpose::create(const char *name)
 {
-	return std::unique_ptr<Operator, Deleter>(new Cat, [](void *p){((Operator*)p)->destroy();});
+	return std::unique_ptr<Operator, Deleter>(new Transpose, [](void *p){((Operator*)p)->destroy();});
 }
 
-std::string Cat::get_name(void)
+std::string Transpose::get_name(void)
 {
-	return "Cat";
+	return "Transpose";
 }
 
-bool Cat::set(const char *id, const Json::Value &cfg, NetworkContext &ctx)
+bool Transpose::set(const char *id, const Json::Value &cfg, NetworkContext &ctx)
 {
 	const Configurer opt(cfg);
 	const std::vector<std::string> inm = opt.get("input", std::vector<std::string>());
-	if (inm.size() < 1) {
+	if (1 != inm.size()) {
 		LogWarn("wrong number of inputs for operator %s: %d\n", id, inm.size());
 		return false;
 	}
+	
+	std::string name;
+	int index = 0;
+	parse_input(inm[0], name, index);
 
-	std::vector<nvinfer1::ITensor *> inputs;
-	const int32_t nbInputs = static_cast<int32_t>(inm.size());
-	for (auto in : inm) {
-		std::string name;
-		int index = 0;
-		parse_input(in, name, index);
-		auto iter = ctx.output.find(name);
-		if (iter == ctx.output.end()) {
-			LogError("invalid input for operator %s: %s\n", id, in);
-			return false;
-		}
-		inputs.emplace_back(iter->second[index]);
+	auto iter = ctx.output.find(name);
+	if (iter == ctx.output.end()) {
+		LogError("invalid input for operator %s: %s\n", id, inm[0]);
+		return false;
 	}
-	
-	auto cat = ctx.network->addConcatenation(inputs.data(), nbInputs);
-	if (!cat) {
-		LogError("addConcatenation for operator %s failed\n", id);
+
+	nvinfer1::ITensor *input = iter->second[index];
+	auto permute = ctx.network->addShuffle(*input);
+	if (!permute) {
+		LogError("addShuffle for operator %s failed\n", id);
 		return false;
 	}
 	
-	static const int INVALID_DIM = -100;
-	const int _dim = opt.get("_saved_dim", INVALID_DIM);
-	if (INVALID_DIM == _dim) {
-		LogError("dim for operator %s is invalid: %d\n", id, _dim);
+	const int _dim0 = opt.get("_saved_dim0", int(-5));
+	if (-5 == _dim0) {
+		LogError("get dim0 for operator %s failed\n", id);
 		return false;
 	}
 	
-	cat->setAxis(_dim);
-	cat->setName(id);
-	cat->getOutput(0)->setName(id);
-	ctx.output[id] = {cat->getOutput(0)};
+	const int _dim1 = opt.get("_saved_dim1", int(-5));
+	if (-5 == _dim1) {
+		LogError("get dim1 for operator %s failed\n", id);
+		return false;
+	}
+
+	nvinfer1::Permutation dims;
+	for (int i = 0; i < nvinfer1::Dims::MAX_DIMS; ++i) {
+		dims.order[i] = i;
+	}
+
+	dims.order[_dim0] = _dim1;
+	dims.order[_dim1] = _dim0;
+	
+	permute->setFirstTranspose(dims);
+	permute->setName(id);
+	permute->getOutput(0)->setName(id);
+	ctx.output[id] = {permute->getOutput(0)};
 	return true;
 }
 

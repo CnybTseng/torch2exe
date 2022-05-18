@@ -96,7 +96,7 @@ bool Detector::init(const char *cfg)
 	shape_out = nne.get_binding_shape(1);
 	if (shape_out.empty()) return false;
 
-	d_img.reset(reinterpret_cast<uint8_t *>(cudaMallocWC(1920 * 1080 * 3)));
+	d_img.reset(reinterpret_cast<uint8_t *>(cudaMallocWC(4096 * 2160 * 3)));
 	if (!d_img) return false;
 
 	d_in.reset(reinterpret_cast<float *>(cudaMallocWC(numel(shape_in) * sizeof(float))));
@@ -152,7 +152,7 @@ bool Detector::preprocess(const BlobSP &input, NNPP &nnpp, float pad_val)
 	// 	cudaStreamSynchronize(stream);
 	// 	cv::Mat bluef(shape_in[2], shape_in[3], CV_32FC1, h_in.get());
 	// 	cv::Mat blue;
-	// 	bluef.convertTo(blue, CV_8UC1);
+	// 	bluef.convertTo(blue, CV_8UC1, 255.f);
 	// 	cv::imwrite("blue.png", blue);
 	// 	cv::Mat bgr(img->height, img->width, CV_8UC3, img->data);
 	// 	cv::imwrite("bgr.png", bgr);
@@ -169,10 +169,6 @@ bool Detector::postprocess(const NNPP &nnpp, BlobSP &output)
 
 	size_t count = static_cast<size_t>(((int *)h_out.get())[0]);
 	LogDebug("count = %d\n", count);
-	if (count > 1000) {
-		LogWarn("too many objects\n");
-		count = 1000;
-	}
 	if (0 == count) {
 		return true;
 	}

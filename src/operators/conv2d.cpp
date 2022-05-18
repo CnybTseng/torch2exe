@@ -62,14 +62,18 @@ bool Conv2d::set(const char *id, const Json::Value &cfg, NetworkContext &ctx)
 		LogWarn("wrong number of inputs for operator %s: %d\n", id, inm.size());
 		return false;
 	}
+	
+	std::string name;
+	int index = 0;
+	parse_input(inm[0], name, index);
 
-	auto iter = ctx.output.find(inm[0]);
+	auto iter = ctx.output.find(name);
 	if (iter == ctx.output.end()) {
 		LogError("invalid input for operator %s: %s\n", id, inm[0]);
 		return false;
 	}
 
-	nvinfer1::ITensor *input = iter->second[0];
+	nvinfer1::ITensor *input = iter->second[index];
 	std::vector<int> wsize = opt.get("_saved_weight_sizes", std::vector<int>());
 	if (4 != wsize.size()) {
 		LogError("invalid weight tensor size for operator %s: %d\n", id, wsize.size());

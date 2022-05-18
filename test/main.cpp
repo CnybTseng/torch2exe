@@ -35,6 +35,7 @@
 
 #include <cstdarg>
 #include <chrono>
+#include <thread>
 
 #include <opencv2/opencv.hpp>
 
@@ -109,7 +110,8 @@ int main(int argc, char *argv[])
         "{ cfg_path             | ../config/YOLOX/yolox_m.json | algorithm configuration file path }"
         "{ img_path             | ../../imgs/station.jpeg      | image path }"
         "{ loops                | 1                            | running loops }"
-        "{ save_path            | objs/                        | output image storage path }";
+        "{ save_path            | objs/                        | output image storage path }"
+		"{ fps                  |                              | fixed fps}";
 	
 	cv::CommandLineParser cmd(argc, argv, keys);
 	if (cmd.has("help") || !cmd.check()) {
@@ -147,8 +149,16 @@ int main(int argc, char *argv[])
 	std::vector<cv::String> files;
 	cv::glob(cmd.get<std::string>("img_path"), files);
 	std::string save_path = cmd.get<std::string>("save_path");
+	float fixed_latency = -1;
+	if (cmd.has("fps")) {
+		int fps = cmd.get<int>("fps");
+		fixed_latency = 1000.f / fps;
+	}
+	cv::Mat mat = cv::imread(files[0]);
 	for (size_t i = 0; i < files.size(); ++i) {
-		cv::Mat mat = cv::imread(files[i]);
+		if (save) {
+			mat = cv::imread(files[i]);
+		}
 		if (mat.empty()) {
 			fprintf(stderr, "read image %s failed\n", files[i].c_str());
 			return -1;
@@ -179,6 +189,10 @@ int main(int argc, char *argv[])
 		if (!save) {
 			if (i == files.size() - 1 && --loops) {
 				i = -1;
+			}
+			if (fixed_latency > 0 && duration < fixed_latency) {
+				int sleeps = static_cast<int>(fixed_latency - duration);
+				std::this_thread::sleep_for(std::chrono::milliseconds(sleeps));
 			}
 			continue;
 		}

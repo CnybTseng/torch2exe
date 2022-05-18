@@ -98,6 +98,25 @@ public:
 	virtual ~Operator() = default;
 	
 	/**
+	 * @brief 解析输入张量数组的名字.
+	 * @param input 输入张量数组的名字. 名字中可能含索引号, 表明取索引号对应的张量. 也可能不含索引号,
+	 *  此时张量数组的大小为1.
+	 * @param name 去除索引号的张量数组名字.
+	 * @param index 张量索引号.
+	 */
+	static void parse_input(const std::string &input, std::string &name, int &index)
+	{
+		std::size_t found = input.find(".");
+		if (std::string::npos == found) {
+			name.assign(input);
+			index = 0;
+		} else {
+			name.assign(input, 0, found);
+			index = std::stoi(input.substr(found + 1), nullptr);
+		}
+	}
+	
+	/**
 	 * @brief 创建算子实例.
 	 * @param cfg 算子配置, 为JSON格式字符串.
 	 * @param network 神经网络定义.

@@ -23,12 +23,12 @@
  * This file is part of torch2exe.
  *
  * @file
- * @brief Tensor concatenation operator.
+ * @brief ReLU activation operator.
  *
  * @author Zhiwei Zeng
  * @email chinaybtseng@gmail.com
  * @version 1.0
- * @date April 11, 2022
+ * @date May 7, 2022
  * @license The MIT License (MIT)
  *
  ******************************************************************/
@@ -37,63 +37,54 @@
 
 #include <NvInfer.h>
 
-#include "cat.h"
+#include "relu.h"
 #include "utils/configurer.h"
 #include "utils/logger.h"
 
 namespace algorithm {
 namespace tensorrt {
 
-std::unique_ptr<Operator, Deleter> Cat::create(const char *name)
+std::unique_ptr<Operator, Deleter> Relu::create(const char *name)
 {
-	return std::unique_ptr<Operator, Deleter>(new Cat, [](void *p){((Operator*)p)->destroy();});
+	return std::unique_ptr<Operator, Deleter>(new Relu, [](void *p){((Operator*)p)->destroy();});
 }
 
-std::string Cat::get_name(void)
+std::string Relu::get_name(void)
 {
-	return "Cat";
+	return "Relu";
 }
 
-bool Cat::set(const char *id, const Json::Value &cfg, NetworkContext &ctx)
+bool Relu::set(const char *id, const Json::Value &cfg, NetworkContext &ctx)
 {
 	const Configurer opt(cfg);
 	const std::vector<std::string> inm = opt.get("input", std::vector<std::string>());
-	if (inm.size() < 1) {
+	if (1 != inm.size()) {
 		LogWarn("wrong number of inputs for operator %s: %d\n", id, inm.size());
 		return false;
 	}
+	
+	std::string name;
+	int index = 0;
+	parse_input(inm[0], name, index);
 
-	std::vector<nvinfer1::ITensor *> inputs;
-	const int32_t nbInputs = static_cast<int32_t>(inm.size());
-	for (auto in : inm) {
-		std::string name;
-		int index = 0;
-		parse_input(in, name, index);
-		auto iter = ctx.output.find(name);
-		if (iter == ctx.output.end()) {
-			LogError("invalid input for operator %s: %s\n", id, in);
-			return false;
-		}
-		inputs.emplace_back(iter->second[index]);
+	auto iter = ctx.output.find(name);
+	if (iter == ctx.output.end()) {
+		LogError("invalid input for operator %s: %s\n", id, inm[0]);
+		return false;
 	}
+
+	nvinfer1::ITensor *input = iter->second[index];
+	const nvinfer1::ActivationType type = nvinfer1::ActivationType::kRELU;
 	
-	auto cat = ctx.network->addConcatenation(inputs.data(), nbInputs);
-	if (!cat) {
-		LogError("addConcatenation for operator %s failed\n", id);
+	auto relu = ctx.network->addActivation(*input, type);
+	if (!relu) {
+		LogError("addActivation for operator %s failed\n", id);
 		return false;
 	}
 	
-	static const int INVALID_DIM = -100;
-	const int _dim = opt.get("_saved_dim", INVALID_DIM);
-	if (INVALID_DIM == _dim) {
-		LogError("dim for operator %s is invalid: %d\n", id, _dim);
-		return false;
-	}
-	
-	cat->setAxis(_dim);
-	cat->setName(id);
-	cat->getOutput(0)->setName(id);
-	ctx.output[id] = {cat->getOutput(0)};
+	relu->setName(id);
+	relu->getOutput(0)->setName(id);
+	ctx.output[id] = {relu->getOutput(0)};
 	return true;
 }
 
