@@ -55,6 +55,12 @@ Detector::Detector() :
 {
 }
 
+bool Detector::execute(const std::initializer_list<BlobSP> &inputs, BlobSP &output)
+{
+	LogError("please call `bool execute(const BlobSP &input, BlobSP &output)` instead\n");
+	return false;
+}
+
 bool Detector::parse_config(const char *cfg)
 {
 	Configurer cfgr;
@@ -185,8 +191,8 @@ bool Detector::postprocess(const NNPP &nnpp, BlobSP &output)
 	LogTrace("nms done\n");
 
 	LogTrace("allocate output buffer\n");
-	size_t size = sizeof(DetectorOutput) + picked.size() * sizeof(DetectorOutputData);
-	output.reset(reinterpret_cast<DetectorOutput *>(new (std::nothrow) char[size]), ArrayDeleter("detector output"));
+	size_t size = sizeof(Object2DBoxFA) + picked.size() * sizeof(Object2DBox);
+	output.reset(reinterpret_cast<Object2DBoxFA *>(new (std::nothrow) char[size]), ArrayDeleter("detector output"));
 	if (!output) {
 		LogError("allocate memory failed\n");
 		return false;
@@ -194,7 +200,7 @@ bool Detector::postprocess(const NNPP &nnpp, BlobSP &output)
 	LogTrace("allocate output buffer done\n");
 	
 	LogTrace("fill output buffer %d %d\n", picked.size(), detections.size());
-	DetectorOutputSP obj = std::static_pointer_cast<DetectorOutput>(output);
+	Object2DBoxFASP obj = std::static_pointer_cast<Object2DBoxFA>(output);
 	obj->type = DETECTION;
 	obj->count = static_cast<uint16_t>(picked.size());
 	for (int i = 0; i < obj->count; ++i) {
@@ -203,6 +209,8 @@ bool Detector::postprocess(const NNPP &nnpp, BlobSP &output)
 		strcpy(obj->data[i].category, categories[category].c_str());
 		float x = (det.box.x - det.box.width * .5f);
 		float y = (det.box.y - det.box.height * .5f);
+		x = x >= 0 ? x : 0;
+		y = y >= 0 ? y : 0;
 		obj->data[i].box.x = static_cast<uint16_t>(x);
 		obj->data[i].box.y = static_cast<uint16_t>(y);
 		obj->data[i].box.width = static_cast<uint16_t>(det.box.width);

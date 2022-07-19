@@ -53,6 +53,7 @@ class Detector : public AlgorithmExt
 public:
 	Detector();
 	virtual ~Detector() = default;
+	virtual bool execute(const std::initializer_list<BlobSP> &inputs, BlobSP &output) override;
 protected:
 	virtual bool parse_config(const char *cfg) override;
 	virtual bool init(const char *cfg) override;

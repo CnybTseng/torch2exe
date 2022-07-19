@@ -76,17 +76,17 @@ public:
 		return std::unique_ptr<B, Deleter>(nullptr, [](void *p){});
 	}
 	
-	static AlgorithmListSP get_algorithm_list(void)
+	static AlgorithmNameFASP get_algorithm_list(void)
 	{
 		const int count = static_cast<int>(get_creators().size());
-		char *data = new (std::nothrow) char[sizeof(AlgorithmList) + count * sizeof(Name)];
+		char *data = new (std::nothrow) char[sizeof(AlgorithmNameFA) + count * sizeof(String32)];
 		if (!data) {
 			LogError("allocate memory failed\n");
-			return AlgorithmListSP(nullptr);
+			return AlgorithmNameFASP(nullptr);
 		}
 		
-		AlgorithmListSP algorithms = AlgorithmListSP(
-			reinterpret_cast<AlgorithmList *>(data), [](void *p){
+		AlgorithmNameFASP algorithms = AlgorithmNameFASP(
+			reinterpret_cast<AlgorithmNameFA *>(data), [](void *p){
 				if (p) {
 					LogDebug("delete [] algorithm list\n");
 					delete [] (char *)p;

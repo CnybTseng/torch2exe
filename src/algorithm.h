@@ -64,16 +64,15 @@
   #define ALGORITHM_LOCAL
 #endif // ALGORITHM_DLL
 
-#define NAME_MAXLEN 32
-
 #include <cstdarg>
+#include <initializer_list>
 #include <memory>
 
 namespace algorithm {
 
 #pragma pack(1)
 
-typedef char Name[NAME_MAXLEN];
+typedef char String32[32];
 
 /**
  * @struct Point2D
@@ -106,7 +105,8 @@ struct Rect
 enum BlobType
 {
 	IMAGE,		///! 图像, 对应algorithm::Image
-	DETECTION	///! 物体检测输出, 对应algorithm::DetectorOutput
+	DETECTION,	///! 物体检测输出, 对应algorithm::Object2DBoxFA
+	OCR			///! 文字识别输出, 对应algorithm::LicensePlateFA
 };
 
 /**
@@ -144,97 +144,55 @@ struct ALGORITHM_API Image : public Blob
 };
 
 /**
- * @struct DetectorOutputData
- * @brief 物体检测器输出数据结构体.
+ * @struct Object2DBox
+ * @brief 物体二维矩形框结构体.
  */
-struct DetectorOutputData
+struct Object2DBox
 {
-	Name category;			///! 物体类别
+	String32 category;		///! 物体类别
 	Rect<uint16_t> box;		///! 物体边框
 	float score;			///! 物体置信度
 };
 
 /**
- * @struct DetectorOutput
- * @brief 物体检测器输出结构体.
+ * @struct Object2DBoxFA
+ * @brief 物体二维矩形框柔性数组结构体.
  */
-struct DetectorOutput : public Blob
+struct Object2DBoxFA : public Blob
 {
 	uint16_t count;					///! 物体数量
-	DetectorOutputData data[1];		///! 物体数据
+	Object2DBox data[1];		///! 物体数据
 };
 
 /**
- * @struct LLA
- * @brief 地理坐标结构体.
+ * @struct LicensePlate
+ * @brief 车牌结构体.
  */
-struct LLA
+struct LicensePlate
 {
-	float latitude;		///! 纬度[`°`]
-	float longitude;	///! 经度[`°`]
-	float altitude;		///! 海拔[`m`]
+	String32 text;			//!< 车牌字符
+	Rect<uint16_t> box;		//!< 车牌边框
+	float score;			//!< 车牌置信度
 };
 
 /**
- * @struct LLA2CameraInput
- * @brief LLA2Camera算法模块输入结构体.
+ * @struct LicensePlateFA
+ * @brief 车牌柔性数组结构体.
  */
-struct LLA2CameraInput : public Blob
+struct LicensePlateFA : public Blob
 {
-	struct
-	{
-		LLA lla;			///! 无人机地理坐标
-		float roll;			///! 无人机在NED坐标系下的滚转角[`°`]
-		float pitch;		///! 无人机在NED坐标系下的俯仰角[`°`]
-		float yaw;			///! 无人机在NED坐标系下的偏航角[`°`]
-	} uav;
-	struct
-	{
-		float tilt;			///! 摄像机在机体坐标系下的俯仰角[`°`]
-		float pan;			///! 摄像机在机体坐标系下的偏航角[`°`]
-		float roll;			///! 摄像机在机体坐标系下的滚转角[`°`]
-		uint16_t hreso;		///! 图像水平分辨率
-		uint16_t vreso;		///! 图像垂直分辨率
-		float fx;			///! 焦距
-		float fy;
-		float cx;			///! 主点坐标
-		float cy;
-		float k1;			///! 镜头径向畸变系数
-		float k2;
-		float k3;
-		float k4;
-		float k5;
-		float k6;
-		float p1;			///! 镜头切向畸变系数
-		float p2;
-		float s1;			///! 镜头棱镜畸变系数
-		float s2;
-		float s3;
-		float s4;
-		LLA lla[4];			///! 图像四角地理坐标, 存储顺序: 左上角, 右上角, 右下角, 左下角
-	} camera;
-	uint16_t count;			///! 目标个数
-	LLA target[1];			///! 目标地理坐标
+	uint16_t count;			//!< 车牌数量
+	LicensePlate data[1];	//!< 车牌数据
 };
 
 /**
- * @struct LLA2CameraOutput
- * @brief LLA2Camera算法模块输出结构体.
- */
-struct LLA2CameraOutput : public Blob
-{
-	uint16_t count;				///! 目标个数
-	Point2D<uint16_t> data[1];	///! 目标像素坐标
-};
-
-/**
- * @struct AlgorithmList
+ * @struct AlgorithmNameFA
  * @brief 算法名字列表结构体.
  */
-struct AlgorithmList
+struct AlgorithmNameFA
 {
-	int count;		///! 算法数量
-	Name names[1];	///! 算法名字
+	int count;			///! 算法数量
+	String32 names[1];	///! 算法名字
 };
 
 #pragma pack()
@@ -243,8 +201,18 @@ using Deleter = void(*)(void *alg);
 using LogCallback = void(*)(const char *format, va_list arg);
 using BlobSP = std::shared_ptr<Blob>;
 using ImageSP = std::shared_ptr<Image>;
-using DetectorOutputSP = std::shared_ptr<DetectorOutput>;
-using AlgorithmListSP = std::shared_ptr<AlgorithmList>;
+using Object2DBoxFASP = std::shared_ptr<Object2DBoxFA>;
+using LicensePlateFASP = std::shared_ptr<LicensePlateFA>;
+using AlgorithmNameFASP = std::shared_ptr<AlgorithmNameFA>;
+
+/**
+ * @brief 向后兼容的数据类型. 老版类型将会在未来删除.
+ */
+using DetectorOutputData = Object2DBox;
+using DetectorOutput     = Object2DBoxFA;
+using DetectorOutputSP   = Object2DBoxFASP;
+using AlgorithmList      = AlgorithmNameFA;
+using AlgorithmListSP    = AlgorithmNameFASP;
 
 /**
  * @class Algorithm
@@ -256,7 +224,7 @@ using AlgorithmListSP = std::shared_ptr<AlgorithmList>;
  *  auto image = algorithm::Image::alloc(...);
  *  algorithm::BlobSP output;
  *	detector->execute(image, output);
- *	auto objs = std::static_pointer_cast<algorithm::DetectorOutput>(output);
+ *	auto objs = std::static_pointer_cast<algorithm::Object2DBoxFA>(output);
  *  ...
  */
 class ALGORITHM_API Algorithm
@@ -300,6 +268,15 @@ public:
 	virtual bool execute(const BlobSP &input, BlobSP &output) = 0;
 	
 	/**
+	 * @brief 执行算法实例.
+	 * @details 该接口用于多输入单输出应用场景.
+	 * @param inputs 算法输入数据.
+	 * @param output 算法输出数据.
+	 * @return 算法执行状态. 成功: true, 失败: false.
+	 */
+	virtual bool execute(const std::initializer_list<BlobSP> &inputs, BlobSP &output) = 0;
+	
+	/**
 	 * @brief 注册日志回调函数.
 	 * @param fun 日志回调函数.
 	 */
@@ -309,7 +286,15 @@ public:
 	 * @brief 获取已注册的算法列表.
 	 * @return 已注册的算法列表.
 	 */
-	static AlgorithmListSP get_algorithm_list(void);
+	static AlgorithmNameFASP get_algorithm_list(void);
+
+	/**
+	 * @brief 获取版本号. 版本号格式为: `major.minor.revision`.
+	 * @param version 版本号存储空间地址.
+	 * @param len 版本号存储空间字节长度. 建议存储空间大小不低于8字节.
+	 * @return 版本查询状态. 成功: true, 失败: false.
+	 */
+	static bool get_version(char *const version, size_t len);
 };
 
 } // namespace algorithm

@@ -1,4 +1,5 @@
 import cv2
+import os.path as osp
 import numpy as np
 
 def main():
@@ -6,7 +7,8 @@ def main():
     title = "COMPUTER VISION TOOLKIT"
     capabilities = "CCs: 6.1,7.5,8.6"
     author = "Author: Zhiwei Zeng"
-    version = "Version: 1.0"
+    version_ = "1.0.0"
+    version = f"Version: {version_}"
 
     color = 255
     fontFace = cv2.FONT_HERSHEY_COMPLEX
@@ -39,22 +41,32 @@ def main():
 
     cv2.imwrite("logo.png", logo)
 
-    with open('logo.h', 'w') as file:
-        file.write('const char logo[] = {\n')
+    namespace = 'algorithm'
+    cfd = osp.split(osp.realpath(__file__))[0]
+    fpath = osp.join(cfd, osp.pardir, 'src', 'logo.h')
+    
+    with open(fpath, 'wb') as file:
+        file.write('#ifndef LOGO_H_\n'.encode())
+        file.write('#define LOGO_H_\n\n'.encode())
+        file.write(f'namespace {namespace} {{\n\n'.encode())
+        file.write('const char logo[] = {\n'.encode())
         for y in range(logo.shape[0]):
             for x in range(logo.shape[1]):
                 if logo[y,x] > 0:
-                    file.write('0x2A')
+                    file.write('0x2A'.encode())
                 else:
-                    file.write('0x20')
+                    file.write('0x20'.encode())
                 if y < logo.shape[0] - 1:
-                    file.write(',')
+                    file.write(','.encode())
                 elif x < logo.shape[1] - 1:
-                    file.write(',')
+                    file.write(','.encode())
                 if x == logo.shape[1] - 1 and y < logo.shape[0] - 1:
-                    file.write('0x0A,')
-            file.write('\n')
-        file.write('};')
+                    file.write('0x0A,'.encode())
+            file.write('\n'.encode())
+        file.write('};\n\n'.encode())
+        file.write(f'const char *_version = \"{version_}\";\n\n'.encode())
+        file.write(f'}} // namespace {namespace}\n\n'.encode())
+        file.write(f'#endif // LOGO_H_'.encode())
 
 if __name__ == '__main__':
     main()

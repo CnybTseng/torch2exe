@@ -1,4 +1,4 @@
-/******************************************************************
+﻿/******************************************************************
  * PyTorch to executable program (torch2exe).
  * Copyright © 2022 Zhiwei Zeng
  *
@@ -34,9 +34,11 @@
  ******************************************************************/
 
 #include <cstdarg>
+#include <cstring>
 #include <chrono>
 #include <thread>
 
+#include <opencv2/freetype.hpp>
 #include <opencv2/opencv.hpp>
 
 #include "algorithm.h"
@@ -102,6 +104,30 @@ static void render_objects(cv::Mat &img, const algorithm::DetectorOutputSP &objs
 	}
 }
 
+static void render_lps(cv::Mat &img, const algorithm::LicensePlateFASP &lps)
+{
+	if (!lps) {
+		fprintf(stdout, "no license plate\n");
+		return;
+	}
+
+	cv::Ptr<cv::freetype::FreeType2> ft2 = cv::freetype::createFreeType2();
+	ft2->loadFontData("fonts/simhei.ttf", 0);
+	const int fontHeight = 20;
+	const int thickness = -1;
+	const int linestyle = 8;
+	for (int i = 0; i < lps->count; ++i) {
+		cv::Rect rect(lps->data[i].box.x, lps->data[i].box.y, lps->data[i].box.width, lps->data[i].box.height);
+		cv::rectangle(img, rect, cv::Scalar(0x00, 0xFF, 0xFF), 2);
+		int x = lps->data[i].box.x + lps->data[i].box.width;
+		int y = lps->data[i].box.y + lps->data[i].box.height;
+		ft2->putText(img, lps->data[i].text, cv::Point(x, y),
+			fontHeight, cv::Scalar(0x00, 0xFF, 0xFF), thickness, linestyle, true);
+		fprintf(stdout, "lp %d: %u %u %u %u %f %s\n", i, lps->data[i].box.x, lps->data[i].box.y,
+			lps->data[i].box.width, lps->data[i].box.height, lps->data[i].score, lps->data[i].text);
+	}
+}
+
 int main(int argc, char *argv[])
 {
 	const char *keys =
@@ -111,7 +137,9 @@ int main(int argc, char *argv[])
         "{ img_path             | ../../imgs/station.jpeg      | image path }"
         "{ loops                | 1                            | running loops }"
         "{ save_path            | objs/                        | output image storage path }"
-		"{ fps                  |                              | fixed fps}";
+		"{ fps                  |                              | fixed fps}"
+		"{ with_lprec           | 0                            | with license plate recognition }"
+		"{ init_lpdet           | 1                            | init license plate detection result }";
 	
 	cv::CommandLineParser cmd(argc, argv, keys);
 	if (cmd.has("help") || !cmd.check()) {
@@ -124,10 +152,18 @@ int main(int argc, char *argv[])
 	// algorithm::Algorithm::register_logger(custom_logger);
 	
 	// 查询已注册的算法[可选操作]
-	// auto algorithms = algorithm::Algorithm::get_algorithm_list();
-	// for (int i = 0; i < algorithms->count; ++i) {
-	// 	fprintf(stdout, "registered: %s\n", algorithms->names[i]);
-	// }
+	auto algorithms = algorithm::Algorithm::get_algorithm_list();
+	for (int i = 0; i < algorithms->count; ++i) {
+		fprintf(stdout, "registered algorithm: %s\n", algorithms->names[i]);
+	}
+	
+	// 查询算法基础模块版本号
+	char version[8] = {0};
+	if (!algorithm::Algorithm::get_version(version, sizeof(version))) {
+		fprintf(stderr, "get algorithm version failed\n");
+		return -1;
+	}
+	fprintf(stdout, "algorithm version: %s\n", version);
 
 	// 创建算法实例
 	auto model = algorithm::Algorithm::create(cmd.get<std::string>("alg_name").c_str());
@@ -142,18 +178,37 @@ int main(int argc, char *argv[])
 		return -1;
 	}
 	
+	// 创建车牌识别算法实例
+	auto lp_recognizer = algorithm::Algorithm::create("PPOCR");
+	if (!lp_recognizer) {
+		fprintf(stderr, "create license plate recognizer failed\n");
+		return -1;
+	}
+	
+	// 初始化车牌识别算法实例
+	if (!lp_recognizer->init(cmd.get<std::string>("cfg_path").c_str())) {
+		fprintf(stderr, "initialize license plate recognizer failed\n");
+		return -1;
+	}
+	
 	int loops = cmd.get<int>("loops");
-	bool save = loops == 1;
+	bool save = loops == 1;	//!< 非延迟测试模式, 保存结果
 	int count = 0;
 	float latency = 0;
 	std::vector<cv::String> files;
 	cv::glob(cmd.get<std::string>("img_path"), files);
+	if (files.size() == 0) {
+		fprintf(stderr, "no image\n");
+		return -1;
+	}
 	std::string save_path = cmd.get<std::string>("save_path");
 	float fixed_latency = -1;
 	if (cmd.has("fps")) {
 		int fps = cmd.get<int>("fps");
 		fixed_latency = 1000.f / fps;
 	}
+	bool with_lprec = cmd.get<int>("with_lprec") != 0;
+	bool init_lpdet = cmd.get<int>("init_lpdet") != 0;
 	cv::Mat mat = cv::imread(files[0]);
 	for (size_t i = 0; i < files.size(); ++i) {
 		if (save) {
@@ -179,7 +234,20 @@ int main(int argc, char *argv[])
 
 		// 执行算法实例
 		auto start = std::chrono::high_resolution_clock::now();
-		if (!model->execute(image, output)) break;
+		if ((!with_lprec) || (with_lprec && init_lpdet)) {
+			if (!model->execute(image, output)) {
+				break;
+			}
+		} // else: 只测试车牌识别
+		algorithm::BlobSP lps(nullptr);
+		if (with_lprec) {
+			// 执行车牌识别算法实例
+			algorithm::BlobSP dets = init_lpdet ? output : nullptr;
+			const std::initializer_list<algorithm::BlobSP> inputs = {image, dets};
+			if (!lp_recognizer->execute(inputs, lps)) {
+				break;
+			}
+		}
 		auto end = std::chrono::high_resolution_clock::now();
 		float duration = std::chrono::duration<float, std::milli>(end - start).count();
 		latency += duration;
@@ -203,6 +271,11 @@ int main(int argc, char *argv[])
 		// 在图像上渲染物体
 		fprintf(stdout, "%s\n", files[i].c_str());
 		render_objects(mat, objs);
+		if (with_lprec) {
+			auto lps_ = std::static_pointer_cast<algorithm::LicensePlateFA>(lps);
+			// 渲染和打印车牌识别结果
+			render_lps(mat, lps_);
+		}
 		std::string filename = save_path + filename_from_path(files[i]);
 		cv::imwrite(filename, mat);
 	}
